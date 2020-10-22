@@ -5,11 +5,15 @@ services:
 cache:
   directories:
   - "$HOME/.cache"
-
+addons:
+  sonarcloud:
+    organization: cogpunk
+    token:
+      secure: Su+f+ClHWc7h/ONUWRdYvZ8IzSQJFHkQk16UTQoGrTH1Mzm8MDbNyL1udBQGMQMSOE/NxJkS2cpOdfa6nYuRymWR8cTz9YOYPo5ZrAAXKXXMt+0n43hHqawFwTM1Rt2KSB3ZLbpgAu7AM/FMcRNdgHwqyNPMspSXF1QToz2J507cqORNwCoQhypnqOAee0dy6JBo2c1X5EDKi5l27e15KLlJka0pAimMPuwMFy/Se4DzgL2E+d8y+XBigkXiOSzEQdY8E+DvQAZCCaNF0oUwucUxaVjZaOngvH9W477AQAFCuaE4OJMrIzb3prW7IqLq8yemFzV8BMCC5okWCCql++8O4r7CIIuwEAPJ4xkMtD+/kiWLM9qccajM5W388yPIz5uoZlDcKp7iVDdgHMMr+CE4OUhdjP5GbWQMC1erbNxo8u/Pb8myfHZ1PDEJemliGuw5b81ThVU2Vv0Ch+8Z+CYCsrzdxUKZcOOAjyngcU3ti1cqdu5pGM/OyZIp5PPeWpGPnoFWInpQcTg6z3LPueQe/LE60Mtvc/JUdaWb/yKhr356h3IhdtM8z7NpMZ1YezN+1fISq8mXBWqv92IUe3mVINxr4hbqM1UudmMRS1M7yCBTitBye4h/FmF3vpH1fOk3FaJ0f3ndLkZ5lMs/2amFDvbyQctfoTy5Po82iaw=
 deploy:
   provider: script
-  script: "cp .travis.settings.xml $HOME/.m2/settings.xml && mvn install"
+  script: cp .travis.settings.xml $HOME/.m2/settings.xml && mvn install clean org.jacoco:jacoco-maven-plugin:prepare-agent
+    install sonar:sonar -Dsonar.projectKey=cogpunk_math
   skip_cleanup: true
   on:
     tags: true
-  
