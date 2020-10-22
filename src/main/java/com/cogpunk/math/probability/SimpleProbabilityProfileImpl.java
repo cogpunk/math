@@ -35,9 +35,7 @@ public class SimpleProbabilityProfileImpl<E,P extends Number> implements Probabi
 	@Override
 	public P getProbability(E event) {
 		
-		P value = profile.get(event);
-		
-		return value;
+		return profile.get(event);
 	}
 
 	/**
