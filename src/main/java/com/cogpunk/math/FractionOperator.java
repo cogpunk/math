@@ -5,19 +5,19 @@ import org.apache.commons.math3.fraction.Fraction;
 public class FractionOperator implements NumberOperator<Fraction> {
 	
 	public Fraction add(Fraction first, Fraction second) {
-		return (Fraction) ((Fraction) first).add((Fraction) second);
+		return first.add(second);
 	}
 	
 	public Fraction subtract(Fraction first, Fraction second) {
-		return (Fraction) ((Fraction) first).subtract((Fraction) second);
+		return  first.subtract(second);
 	}
 	
 	public Fraction multiply(Fraction first, Fraction second) {
-		return (Fraction) ((Fraction) first).multiply((Fraction) second);
+		return  first.multiply(second);
 	}
 	
 	public Fraction divide(Fraction first, Fraction second) {
-		return (Fraction) ((Fraction) first).divide((Fraction) second);
+		return  first.divide(second);
 	}
 
 	@Override

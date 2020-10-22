@@ -66,14 +66,5 @@ public class ComparableEventProbabilityProfileImpl<E extends Comparable<E>, P ex
 		return "NumberProbabilityProfileImpl [profile=" + map() + "]";
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }

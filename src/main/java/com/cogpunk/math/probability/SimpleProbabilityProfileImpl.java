@@ -13,7 +13,7 @@ import java.util.TreeMap;
  */
 public class SimpleProbabilityProfileImpl<E,P extends Number> implements ProbabilityProfile<E, P> {
 
-	public TreeMap<E, P> profile = new TreeMap<E, P>();
+	private TreeMap<E, P> profile = new TreeMap<E, P>();
 	
 	/**
 	 * An empty profile

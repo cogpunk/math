@@ -125,7 +125,7 @@ public class ProbabilityProfileAggegator<I, E, P extends Number> implements Prob
 					
 				}
 				
-				totalAggregates.add(new Probability(finalResult, thisRollProbability));				
+				totalAggregates.add(new Probability<E,P>(finalResult, thisRollProbability));				
 				
 			}
 			
@@ -153,7 +153,7 @@ public class ProbabilityProfileAggegator<I, E, P extends Number> implements Prob
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ProbabilityProfileAggegator other = (ProbabilityProfileAggegator) obj;
+		ProbabilityProfileAggegator<I, E, P> other = (ProbabilityProfileAggegator<I, E, P>) obj;
 		if (probabilityProfile == null) {
 			if (other.map() != null)
 				return false;

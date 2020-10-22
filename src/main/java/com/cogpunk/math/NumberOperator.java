@@ -11,6 +11,10 @@ public interface NumberOperator<P extends Number> {
 	public P divide(P first, P second);
 	
 	public P cast(Number i);
+	
+	public boolean equals(Object obj);
+	
+	public int hashCode();
 
 
 }
