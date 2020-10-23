@@ -97,7 +97,7 @@ public class VariableProbabilityProfileAggregator<E, P extends Number> implement
 			}
 		}
 		
-		return  new SimpleProbabilityProfileImpl(map);
+		return  new SimpleProbabilityProfileImpl<E, P>(map);
 	}
 
 
