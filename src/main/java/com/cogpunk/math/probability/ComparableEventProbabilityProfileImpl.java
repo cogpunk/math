@@ -65,6 +65,5 @@ public class ComparableEventProbabilityProfileImpl<E extends Comparable<E>, P ex
 	public String toString() {
 		return "NumberProbabilityProfileImpl [profile=" + map() + "]";
 	}
-	
 
 }

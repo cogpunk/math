@@ -77,8 +77,11 @@ public class VariableProbabilityProfileAggregator<E, P extends Number> implement
 			
 		}
 		
-		// Now simply add the probabilities together
+		return  assembleProbabilityProfile(aggrProfs);
 		
+	}
+	
+	private ProbabilityProfile<E, P>  assembleProbabilityProfile(List<ProbabilityProfile<E, P>>  aggrProfs) {
 		Map<E,P> map = new HashMap<E,P>();
 		
 		for (ProbabilityProfile<E, P> prof : aggrProfs) {
@@ -95,7 +98,6 @@ public class VariableProbabilityProfileAggregator<E, P extends Number> implement
 		}
 		
 		return  new SimpleProbabilityProfileImpl(map);
-		
 	}
 
 
