@@ -10,10 +10,6 @@ import org.junit.Test;
 
 import com.cogpunk.math.FractionOperator;
 import com.cogpunk.math.IntegerOperator;
-import com.cogpunk.math.probability.ComparableEventProbabilityProfile;
-import com.cogpunk.math.probability.ComparableEventProbabilityProfileImpl;
-import com.cogpunk.math.probability.ProbabilityProfileAdditionAggregationStrategy;
-import com.cogpunk.math.probability.ProbabilityProfileAggegator;
 
 public class ProbabilityProfileAggegatorTest {
 	
