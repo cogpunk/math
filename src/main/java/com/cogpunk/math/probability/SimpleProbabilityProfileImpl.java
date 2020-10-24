@@ -15,11 +15,6 @@ public class SimpleProbabilityProfileImpl<E,P extends Number> implements Probabi
 
 	private TreeMap<E, P> profile = new TreeMap<E, P>();
 	
-	/**
-	 * An empty profile
-	 */
-	public SimpleProbabilityProfileImpl() {
-	}
 	
 	/**
 	 * 

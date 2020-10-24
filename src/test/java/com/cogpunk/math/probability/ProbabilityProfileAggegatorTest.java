@@ -30,6 +30,23 @@ public class ProbabilityProfileAggegatorTest {
 		
 	}
 	
+	@Test
+	public void testEqualsHashCode() {
+		
+		ProbabilityProfile<Integer, Fraction> profile =  createProfile(6);
+		
+		ProbabilityProfileAggegator<Integer, Integer, Fraction> aggregator1 
+		= new ProbabilityProfileAggegator<Integer, Integer, Fraction>(new ProbabilityProfileAdditionAggregationStrategy(new IntegerOperator()), new FractionOperator(), profile);
+		
+		ProbabilityProfileAggegator<Integer, Integer, Fraction> aggregator2
+		= new ProbabilityProfileAggegator<Integer, Integer, Fraction>(new ProbabilityProfileAdditionAggregationStrategy(new IntegerOperator()), new FractionOperator(), profile);
+		
+		
+		assertEquals(aggregator1, aggregator2);
+		assertEquals(aggregator1.hashCode(), aggregator2.hashCode());
+		
+	}
+	
 	
 	@Test
 	public void testTwoProbabilityProfileAddition() {
