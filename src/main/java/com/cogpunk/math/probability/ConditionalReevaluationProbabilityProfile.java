@@ -11,9 +11,9 @@ import com.cogpunk.math.NumberOperator;
  * 
  * An example would be a conditional re-roll of  dice
  */
-public class ConditionalReevaluationProbabilityProfile<E,P extends Number> implements ProbabilityProfile<E, P> {
+public class ConditionalReevaluationProbabilityProfile<E,P extends Number> implements EventProbabilityProfile<E, P> {
 	
-	private ProbabilityProfile<E,P> profile;
+	private EventProbabilityProfile<E,P> profile;
 	
 	/**
 	 * @param baseProfile The base, source profile
@@ -21,13 +21,13 @@ public class ConditionalReevaluationProbabilityProfile<E,P extends Number> imple
 	 * @param reevaluationCount The maximum number of times a reevaluation is to occur
 	 * @param numberOperator The operator for the probability number type
 	 */
-	public ConditionalReevaluationProbabilityProfile(ProbabilityProfile<E, P> baseProfile, EventSelector<E, P> selector, int reevaluationCount, NumberOperator<P> numberOperator) {
+	public ConditionalReevaluationProbabilityProfile(EventProbabilityProfile<E, P> baseProfile, EventSelector<E, P> selector, int reevaluationCount, NumberOperator<P> numberOperator) {
 		super();
 		
 		profile = calculate(baseProfile, selector, reevaluationCount, numberOperator);
 	}
 	
-	private ProbabilityProfile<E,P> calculate(ProbabilityProfile<E, P> baseProfile, EventSelector<E, P> selector, int reevaluationCount, NumberOperator<P> numberOperator) {
+	private EventProbabilityProfile<E,P> calculate(EventProbabilityProfile<E, P> baseProfile, EventSelector<E, P> selector, int reevaluationCount, NumberOperator<P> numberOperator) {
 		
 		Map<E,P> currentMap = new HashMap<E, P>();
 		currentMap.putAll(baseProfile.map());

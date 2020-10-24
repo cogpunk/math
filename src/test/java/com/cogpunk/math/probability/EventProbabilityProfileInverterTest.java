@@ -10,7 +10,7 @@ import org.junit.Test;
 
 import com.cogpunk.math.FractionOperator;
 
-public class ProbabilityProfileInverterTest {
+public class EventProbabilityProfileInverterTest {
 
 	@Test
 	public void testInverstion() {
@@ -20,7 +20,7 @@ public class ProbabilityProfileInverterTest {
 		map.put(2, new Fraction(2,6));
 		map.put(3, new Fraction(3,6));
 		
-		ProbabilityProfile<Integer, Fraction> inverted = new ProbabilityProfileInverter<Integer, Fraction>(new SimpleProbabilityProfileImpl<Integer, Fraction>(map), new FractionOperator());
+		EventProbabilityProfile<Integer, Fraction> inverted = new EventProbabilityProfileInverter<Integer, Fraction>(new SimpleProbabilityProfileImpl<Integer, Fraction>(map), new FractionOperator());
 		
 		assertEquals(new Fraction(5,6), inverted.getProbability(1));
 		assertEquals(new Fraction(4,6), inverted.getProbability(2));

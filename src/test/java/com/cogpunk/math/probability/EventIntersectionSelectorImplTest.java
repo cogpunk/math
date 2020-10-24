@@ -13,7 +13,7 @@ import org.junit.Test;
 
 public class EventIntersectionSelectorImplTest {
 
-	private ProbabilityProfile<Integer, Fraction> profile;
+	private EventProbabilityProfile<Integer, Fraction> profile;
 	
 	@Before
 	public void setUp() throws Exception {

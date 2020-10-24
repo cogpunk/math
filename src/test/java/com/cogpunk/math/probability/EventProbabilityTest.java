@@ -6,7 +6,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class ProbabilityTest {
+public class EventProbabilityTest {
 
 	@Before
 	public void setUp() throws Exception {
@@ -18,8 +18,8 @@ public class ProbabilityTest {
 		Object e = new Object();
 		Integer i = 1;
 		
-		Probability<Object, Integer> p1 = new Probability<Object, Integer> (e,i);
-		Probability<Object, Integer> p2 = new Probability<Object, Integer> (e,i);
+		EventProbability<Object, Integer> p1 = new EventProbability<Object, Integer> (e,i);
+		EventProbability<Object, Integer> p2 = new EventProbability<Object, Integer> (e,i);
 		
 		Assert.assertEquals(p1.hashCode(), p2.hashCode());
 		
@@ -31,7 +31,7 @@ public class ProbabilityTest {
 		Object e = new Object();
 		Integer i = 1;
 		
-		Probability<Object, Integer> p = new Probability<Object, Integer> (e,i);
+		EventProbability<Object, Integer> p = new EventProbability<Object, Integer> (e,i);
 		
 		Assert.assertEquals(e, p.getEvent());
 	}
@@ -41,7 +41,7 @@ public class ProbabilityTest {
 		Object e = new Object();
 		Integer i = 1;
 		
-		Probability<Object, Integer> p = new Probability<Object, Integer> (e,i);
+		EventProbability<Object, Integer> p = new EventProbability<Object, Integer> (e,i);
 		
 		Assert.assertEquals(i, p.getProbability());
 	}
@@ -51,8 +51,8 @@ public class ProbabilityTest {
 		Object e = new Object();
 		Integer i = 1;
 		
-		Probability<Object, Integer> p1 = new Probability<Object, Integer> (e,i);
-		Probability<Object, Integer> p2 = new Probability<Object, Integer> (e,i);
+		EventProbability<Object, Integer> p1 = new EventProbability<Object, Integer> (e,i);
+		EventProbability<Object, Integer> p2 = new EventProbability<Object, Integer> (e,i);
 		
 		Assert.assertEquals(p1, p2);
 	}

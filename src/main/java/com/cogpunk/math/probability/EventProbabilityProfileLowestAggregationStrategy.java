@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Strategy to return the lowest of the defined events, as defined by the event' compareTo method
  */
-public class ProbabilityProfileLowestAggregationStrategy<E extends Number & Comparable<E>> implements ProbabilityProfileAggregationStrategy<E, E> {
+public class EventProbabilityProfileLowestAggregationStrategy<E extends Number & Comparable<E>> implements EventProbabilityProfileAggregationStrategy<E, E> {
 
 	/**
 	 * @return The lowest event in the supplied list

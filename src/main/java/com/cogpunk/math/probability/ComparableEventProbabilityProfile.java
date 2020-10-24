@@ -1,6 +1,6 @@
 package com.cogpunk.math.probability;
 
-public interface ComparableEventProbabilityProfile<E extends Comparable<E>,P extends Number> extends ProbabilityProfile<E, P> {
+public interface ComparableEventProbabilityProfile<E extends Comparable<E>,P extends Number> extends EventProbabilityProfile<E, P> {
 	
 	/**
 	 * @return The probability of the event being greater than or equal to the supplied event

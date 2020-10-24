@@ -14,7 +14,7 @@ public interface VariableZeroHandler<E, P extends Number> {
 	 * @param repeatProbabilityProfile The probability of the the various repeats happening
 	 */
 	public void handleZeroRepeats(
-			List<ProbabilityProfile<E, P>> profiles,
-			ProbabilityProfile<Integer, P> repeatProbabilityProfile);
+			List<EventProbabilityProfile<E, P>> profiles,
+			EventProbabilityProfile<Integer, P> repeatProbabilityProfile);
 
 }

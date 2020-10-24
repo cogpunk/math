@@ -15,7 +15,7 @@ import com.cogpunk.math.FractionOperator;
 
 public class ConditionalReevaluationProbabilityProfileTest {
 	
-	private ProbabilityProfile<Integer, Fraction> profile;
+	private EventProbabilityProfile<Integer, Fraction> profile;
 	
 	private EventSelector<Integer, Fraction> selector;
 

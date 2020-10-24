@@ -9,8 +9,8 @@ import java.util.Map;
 public class VariableIntegerZeroHandler<P extends Number> implements VariableZeroHandler<Integer, P> {
 
 	@Override
-	public void handleZeroRepeats(List<ProbabilityProfile<Integer, P>> profiles,
-			ProbabilityProfile<Integer, P> repeatProbabilityProfile) {
+	public void handleZeroRepeats(List<EventProbabilityProfile<Integer, P>> profiles,
+			EventProbabilityProfile<Integer, P> repeatProbabilityProfile) {
 		
 		Map<Integer,P> modProbProf = new HashMap<Integer,P>();
 		modProbProf.put(0, repeatProbabilityProfile.getProbability(0));

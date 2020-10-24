@@ -60,7 +60,7 @@ public class AverageEventCalculatorTest {
 		map.put(2, new Fraction(2,3));
 		map.put(3, new Fraction(2,3));
 		
-		ProbabilityProfile<Integer, Fraction> profile = new SimpleProbabilityProfileImpl<Integer, Fraction>(map);
+		EventProbabilityProfile<Integer, Fraction> profile = new SimpleProbabilityProfileImpl<Integer, Fraction>(map);
 		
 		AverageEventCalculator<Integer, Fraction> calc = new AverageEventCalculator<Integer, Fraction>(new FractionOperator());
 		

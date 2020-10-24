@@ -9,7 +9,7 @@ import com.cogpunk.math.NumberOperator;
  * Inverts the probability of all the events. For example, 90% becomes 10%
  * 
  */
-public class ProbabilityProfileInverter<E, P extends Number> implements ProbabilityProfile<E, P> {
+public class EventProbabilityProfileInverter<E, P extends Number> implements EventProbabilityProfile<E, P> {
 	
 	private Map<E, P> map;
 	
@@ -17,7 +17,7 @@ public class ProbabilityProfileInverter<E, P extends Number> implements Probabil
 	 * @param profile The input source profile
 	 * @param operator Suitable for manipulating the probability
 	 */
-	public ProbabilityProfileInverter(ProbabilityProfile<E, P> profile, NumberOperator<P> operator) {
+	public EventProbabilityProfileInverter(EventProbabilityProfile<E, P> profile, NumberOperator<P> operator) {
 		
 		map = new HashMap<E,P>();
 		

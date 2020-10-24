@@ -26,20 +26,20 @@ public class VariableProbabilityProfileAggregatorTest {
 		d3map.put(2, new Fraction(1,3));
 		d3map.put(3, new Fraction(1,3));
 		
-		ProbabilityProfile<Integer, Fraction> d3 = new SimpleProbabilityProfileImpl<Integer, Fraction>(d3map);
+		EventProbabilityProfile<Integer, Fraction> d3 = new SimpleProbabilityProfileImpl<Integer, Fraction>(d3map);
 		
 		Map<Integer, Fraction> map = new HashMap<Integer, Fraction>();
 		map.put(0, new Fraction(1,3));
 		map.put(1, new Fraction(2,3));
 		
-		ProbabilityProfile<Integer, Fraction> prof = new SimpleProbabilityProfileImpl<Integer, Fraction>(map);
+		EventProbabilityProfile<Integer, Fraction> prof = new SimpleProbabilityProfileImpl<Integer, Fraction>(map);
 		
 		FractionOperator fractionOperator = new FractionOperator();
 		IntegerOperator integerOperator = new IntegerOperator();
 		
 		VariableProbabilityProfileAggregator<Integer, Fraction> agg = new VariableProbabilityProfileAggregator<Integer, Fraction>(
 				d3,
-				new ProbabilityProfileAdditionAggregationStrategy<Integer>(integerOperator),
+				new EventProbabilityProfileAdditionAggregationStrategy<Integer>(integerOperator),
 				fractionOperator,
 				new VariableIntegerZeroHandler<Fraction>(),
 				prof

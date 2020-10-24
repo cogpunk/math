@@ -8,7 +8,7 @@ import java.util.List;
  * @param <I> The class type identifying the input probability
  * @param <E> The class type identifying the output probability
  */
-public interface ProbabilityProfileAggregationStrategy<I, E> {
+public interface EventProbabilityProfileAggregationStrategy<I, E> {
 	
 	/**
 	 * @param results the list of 

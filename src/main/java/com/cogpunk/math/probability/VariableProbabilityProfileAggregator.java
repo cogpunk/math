@@ -7,23 +7,23 @@ import java.util.Map;
 
 import com.cogpunk.math.NumberOperator;
 
-public class VariableProbabilityProfileAggregator<E, P extends Number> implements ProbabilityProfile<E, P> {
+public class VariableProbabilityProfileAggregator<E, P extends Number> implements EventProbabilityProfile<E, P> {
 	
-	private ProbabilityProfile<Integer, P> repeatProbabilityProfile;
+	private EventProbabilityProfile<Integer, P> repeatProbabilityProfile;
 	
-	private ProbabilityProfile<E, P> probabilityProfile;
+	private EventProbabilityProfile<E, P> probabilityProfile;
 	
-	private ProbabilityProfileAggregationStrategy<E, E> aggregationStrategy; 
+	private EventProbabilityProfileAggregationStrategy<E, E> aggregationStrategy; 
 	
 	private NumberOperator<P> numberOperator;
 	
 	private VariableZeroHandler<E, P> variableZeroHandler;
 
-	public VariableProbabilityProfileAggregator(ProbabilityProfile<Integer, P> repeatProbabilityProfile,
-			ProbabilityProfileAggregationStrategy<E, E> aggregationStrategy, 
+	public VariableProbabilityProfileAggregator(EventProbabilityProfile<Integer, P> repeatProbabilityProfile,
+			EventProbabilityProfileAggregationStrategy<E, E> aggregationStrategy, 
 			NumberOperator<P> numberOperator,
 			VariableZeroHandler<E, P> variableZeroHandler,
-			ProbabilityProfile<E,P> probabilityProfile) {
+			EventProbabilityProfile<E,P> probabilityProfile) {
 		super();
 		this.repeatProbabilityProfile = repeatProbabilityProfile;
 		this.aggregationStrategy = aggregationStrategy;
@@ -36,9 +36,9 @@ public class VariableProbabilityProfileAggregator<E, P extends Number> implement
 	
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	private ProbabilityProfile<E, P> calculateProbabilityProfile(ProbabilityProfile<E, P> probabilityProfile) {
+	private EventProbabilityProfile<E, P> calculateProbabilityProfile(EventProbabilityProfile<E, P> probabilityProfile) {
 		
-		List<ProbabilityProfile<E, P>> aggrProfs= new ArrayList<ProbabilityProfile<E, P>>();
+		List<EventProbabilityProfile<E, P>> aggrProfs= new ArrayList<EventProbabilityProfile<E, P>>();
 		
 		for (Integer r : repeatProbabilityProfile.map().keySet()) {
 			
@@ -56,13 +56,13 @@ public class VariableProbabilityProfileAggregator<E, P extends Number> implement
 				
 			} else {
 			
-				List<ProbabilityProfile<E, P>> profs = new ArrayList<ProbabilityProfile<E, P>>();
+				List<EventProbabilityProfile<E, P>> profs = new ArrayList<EventProbabilityProfile<E, P>>();
 				
 				for (int n = 0; n < r; n++) {
 					profs.add(probabilityProfile);
 				}
 				
-				ProbabilityProfile<E, P> thisProbProf = new ProbabilityProfileAggegator(aggregationStrategy, numberOperator, profs);
+				EventProbabilityProfile<E, P> thisProbProf = new EventProbabilityProfileAggegator(aggregationStrategy, numberOperator, profs);
 	
 				// Change probabilities based on probability of this occurring
 				
@@ -81,10 +81,10 @@ public class VariableProbabilityProfileAggregator<E, P extends Number> implement
 		
 	}
 	
-	private ProbabilityProfile<E, P>  assembleProbabilityProfile(List<ProbabilityProfile<E, P>>  aggrProfs) {
+	private EventProbabilityProfile<E, P>  assembleProbabilityProfile(List<EventProbabilityProfile<E, P>>  aggrProfs) {
 		Map<E,P> map = new HashMap<E,P>();
 		
-		for (ProbabilityProfile<E, P> prof : aggrProfs) {
+		for (EventProbabilityProfile<E, P> prof : aggrProfs) {
 			for (E e : prof.map().keySet()) {
 				P prob = prof.getProbability(e);
 				

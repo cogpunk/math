@@ -7,15 +7,15 @@ import com.cogpunk.math.NumberOperator;
 /**
  * Streatgy for multiplying all of the events together 
  */
-public class ProbabilityProfileMultiplicationAggregationStrategy<E extends Number>
-		implements ProbabilityProfileAggregationStrategy<E, E> {
+public class EventProbabilityProfileMultiplicationAggregationStrategy<E extends Number>
+		implements EventProbabilityProfileAggregationStrategy<E, E> {
 	
 	private NumberOperator<E> numberOperator;
 	
 	/**
 	 * @param numberOperator suitable for manipulating the events
 	 */
-	public ProbabilityProfileMultiplicationAggregationStrategy(NumberOperator<E> numberOperator) {
+	public EventProbabilityProfileMultiplicationAggregationStrategy(NumberOperator<E> numberOperator) {
 		this.numberOperator = numberOperator;
 	}
 	

@@ -7,7 +7,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-public class SimpleProbabilityProfileImplTest {
+public class SimpleEventProbabilityProfileImplTest {
 	
 	private Map<String, Integer> map1;
 	private Map<String, Integer> map2;

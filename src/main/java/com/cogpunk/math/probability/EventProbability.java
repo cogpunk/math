@@ -6,13 +6,13 @@ package com.cogpunk.math.probability;
  * @param <E>  The class defining the event
  * @param <P> The class defining the probability
  */
-public class Probability<E, P> {
+public class EventProbability<E, P> {
 	
 	private E event;
 	
 	private P probability;
 
-	public Probability(E event, P probability) {
+	public EventProbability(E event, P probability) {
 		super();
 		this.event = event;
 		this.probability = probability;
@@ -46,7 +46,7 @@ public class Probability<E, P> {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Probability other = (Probability) obj;
+		EventProbability other = (EventProbability) obj;
 		if (event == null) {
 			if (other.event != null)
 				return false;

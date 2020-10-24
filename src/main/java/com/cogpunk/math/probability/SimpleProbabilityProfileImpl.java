@@ -11,7 +11,7 @@ import java.util.TreeMap;
  * @param <E>
  * @param <P>
  */
-public class SimpleProbabilityProfileImpl<E,P extends Number> implements ProbabilityProfile<E, P> {
+public class SimpleProbabilityProfileImpl<E,P extends Number> implements EventProbabilityProfile<E, P> {
 
 	private TreeMap<E, P> profile = new TreeMap<E, P>();
 	

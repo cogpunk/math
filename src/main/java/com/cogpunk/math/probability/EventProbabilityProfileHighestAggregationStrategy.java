@@ -5,7 +5,7 @@ import java.util.List;
 /**
  * Strategy to return the highest of the defined events
  */
-public class ProbabilityProfileHighestAggregationStrategy<E extends Number & Comparable<E>> implements ProbabilityProfileAggregationStrategy<E, E> {
+public class EventProbabilityProfileHighestAggregationStrategy<E extends Number & Comparable<E>> implements EventProbabilityProfileAggregationStrategy<E, E> {
 
 	/**
 	 * @return The highest probability, as defined by it's own compareTo method

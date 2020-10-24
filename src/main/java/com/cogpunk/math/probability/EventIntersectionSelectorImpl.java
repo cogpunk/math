@@ -18,7 +18,7 @@ public class EventIntersectionSelectorImpl<E,P extends Number> implements EventS
 	}
 
 	@Override
-	public Set<E> selectEvents(ProbabilityProfile<E, P> profile) {
+	public Set<E> selectEvents(EventProbabilityProfile<E, P> profile) {
 		Set<E> intersection = new HashSet<E>(events);
 		intersection.retainAll(profile.map().keySet());
 		return intersection;

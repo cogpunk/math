@@ -6,7 +6,7 @@ import java.util.Map;
  * Defines the probability of a set of events from occurring.
  * 
  */
-public interface ProbabilityProfile<E, P extends Number> {
+public interface EventProbabilityProfile<E, P extends Number> {
 	
 	/**
 	 * @param event  The event in question

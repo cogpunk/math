@@ -14,26 +14,26 @@ import com.cogpunk.math.NumberOperator;
  * @param <E> The Output Event for the probability
  * @param <P> The Probability representation number type
  */
-public class ProbabilityProfileAggegator<I, E, P extends Number> implements ProbabilityProfile<E, P> {
+public class EventProbabilityProfileAggegator<I, E, P extends Number> implements EventProbabilityProfile<E, P> {
 	
-	private ProbabilityProfile<E, P> probabilityProfile;
+	private EventProbabilityProfile<E, P> probabilityProfile;
 	
 	private NumberOperator<P> numberOperator;
 	
-	public ProbabilityProfileAggegator(
-			ProbabilityProfileAggregationStrategy<I, E> aggregationStrategy, 
+	public EventProbabilityProfileAggegator(
+			EventProbabilityProfileAggregationStrategy<I, E> aggregationStrategy, 
 			NumberOperator<P> numberOperator,
-			ProbabilityProfile<I,P> ...probabilityProfile) {
+			EventProbabilityProfile<I,P> ...probabilityProfile) {
 		
 		this.numberOperator = numberOperator;
 		
 		this.probabilityProfile = calculateProbabilityProfile(aggregationStrategy, Arrays.asList(probabilityProfile));
 	}
 	
-	public ProbabilityProfileAggegator(
-			ProbabilityProfileAggregationStrategy<I, E> aggregationStrategy, 
+	public EventProbabilityProfileAggegator(
+			EventProbabilityProfileAggregationStrategy<I, E> aggregationStrategy, 
 			NumberOperator<P> numberOperator,
-			List<ProbabilityProfile<I,P>> probabilityProfiles) {
+			List<EventProbabilityProfile<I,P>> probabilityProfiles) {
 		
 		this.numberOperator = numberOperator;
 		
@@ -52,13 +52,13 @@ public class ProbabilityProfileAggegator<I, E, P extends Number> implements Prob
 	 * @param dice The sets of dice
 	 * @return
 	 */
-	protected ProbabilityProfile<E, P> calculateProbabilityProfile(
-			ProbabilityProfileAggregationStrategy<I, E> aggregationStrategy, 
-			List<ProbabilityProfile<I,P>> probabilityProfiles) {
+	protected EventProbabilityProfile<E, P> calculateProbabilityProfile(
+			EventProbabilityProfileAggregationStrategy<I, E> aggregationStrategy, 
+			List<EventProbabilityProfile<I,P>> probabilityProfiles) {
 		
 		
-		List<Probability<E,P>> totalAggregates = new ArrayList<Probability<E,P>>();
-		List<Probability<I,P>> previousDiceResultProbabilities = new ArrayList<Probability<I,P>>();
+		List<EventProbability<E,P>> totalAggregates = new ArrayList<EventProbability<E,P>>();
+		List<EventProbability<I,P>> previousDiceResultProbabilities = new ArrayList<EventProbability<I,P>>();
 		
 		aggregate(totalAggregates, previousDiceResultProbabilities, aggregationStrategy, 0, probabilityProfiles);
 		
@@ -66,7 +66,7 @@ public class ProbabilityProfileAggegator<I, E, P extends Number> implements Prob
 		
 		Map<E, P> profile = new HashMap<E, P>();
 		
-		for (Probability<E,P> result : totalAggregates) {
+		for (EventProbability<E,P> result : totalAggregates) {
 			if (!profile.containsKey(result.getEvent())) {
 				profile.put(result.getEvent(), result.getProbability());
 			} else {
@@ -82,19 +82,19 @@ public class ProbabilityProfileAggegator<I, E, P extends Number> implements Prob
 	}
 	
 	protected void aggregate(
-			List<Probability<E,P>> totalAggregates, 
-			List<Probability<I,P>> previousDiceResultProbabilities, 
-			ProbabilityProfileAggregationStrategy<I, E> aggregationStrategy, 
+			List<EventProbability<E,P>> totalAggregates, 
+			List<EventProbability<I,P>> previousDiceResultProbabilities, 
+			EventProbabilityProfileAggregationStrategy<I, E> aggregationStrategy, 
 			int iter, 
-			List<ProbabilityProfile<I,P>> probabilityProfiles) {
+			List<EventProbabilityProfile<I,P>> probabilityProfiles) {
 		
-		ProbabilityProfile<I,P> currentProfile = probabilityProfiles.get(iter);
+		EventProbabilityProfile<I,P> currentProfile = probabilityProfiles.get(iter);
 		
 		for (I result : currentProfile.map().keySet()) {
 			
-			List<Probability<I,P>> allDiceResultProbabilities = new ArrayList<Probability<I,P>>();
+			List<EventProbability<I,P>> allDiceResultProbabilities = new ArrayList<EventProbability<I,P>>();
 			allDiceResultProbabilities.addAll(previousDiceResultProbabilities);
-			allDiceResultProbabilities.add(new Probability<I,P>(result, currentProfile.getProbability(result)));
+			allDiceResultProbabilities.add(new EventProbability<I,P>(result, currentProfile.getProbability(result)));
 			
 			// If there are mode dice to roll, the do so by recusion
 			
@@ -106,7 +106,7 @@ public class ProbabilityProfileAggegator<I, E, P extends Number> implements Prob
 				
 				List<I> thisRollResults = new ArrayList<I>();
 				
-				for (Probability<I,P> r : allDiceResultProbabilities) {
+				for (EventProbability<I,P> r : allDiceResultProbabilities) {
 					thisRollResults.add(r.getEvent());
 				}
 				
@@ -114,7 +114,7 @@ public class ProbabilityProfileAggegator<I, E, P extends Number> implements Prob
 				
 				P thisRollProbability = null;
 				
-				for (Probability<I,P> r : allDiceResultProbabilities) {
+				for (EventProbability<I,P> r : allDiceResultProbabilities) {
 					
 					if (thisRollProbability == null) {
 						thisRollProbability = r.getProbability();
@@ -125,7 +125,7 @@ public class ProbabilityProfileAggegator<I, E, P extends Number> implements Prob
 					
 				}
 				
-				totalAggregates.add(new Probability<E,P>(finalResult, thisRollProbability));				
+				totalAggregates.add(new EventProbability<E,P>(finalResult, thisRollProbability));				
 				
 			}
 			
@@ -153,7 +153,7 @@ public class ProbabilityProfileAggegator<I, E, P extends Number> implements Prob
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		ProbabilityProfileAggegator<I, E, P> other = (ProbabilityProfileAggegator<I, E, P>) obj;
+		EventProbabilityProfileAggegator<I, E, P> other = (EventProbabilityProfileAggegator<I, E, P>) obj;
 		if (probabilityProfile == null) {
 			if (other.map() != null)
 				return false;

@@ -24,7 +24,7 @@ public class AverageEventCalculator<E extends Comparable<E>,P extends Number & C
 	 * @param profile The profile to evaluate
 	 * @return The most likely result
 	 */
-	public E mode(ProbabilityProfile<E,P> profile) {
+	public E mode(EventProbabilityProfile<E,P> profile) {
 		
 		// simply iterate through and identify the most common
 		
@@ -48,7 +48,7 @@ public class AverageEventCalculator<E extends Comparable<E>,P extends Number & C
 	 * @param profile The profile to evaluate
 	 * @return The 'middle' (median) event
 	 */
-	public E median(ProbabilityProfile<E,P> profile) {
+	public E median(EventProbabilityProfile<E,P> profile) {
 		
 		SortedMap<E,P> sortedMap = new TreeMap<E,P>();
 		sortedMap.putAll(profile.map());
@@ -81,7 +81,7 @@ public class AverageEventCalculator<E extends Comparable<E>,P extends Number & C
 	/**
 	 * @return The sum of all of the probabilities
 	 */
-	protected P calculateTotalProbability(ProbabilityProfile<E,P> profile) {
+	protected P calculateTotalProbability(EventProbabilityProfile<E,P> profile) {
 		P totalProb = probabilityNumberOperator.cast(0);
 		
 		for (E e : profile.map().keySet()) {

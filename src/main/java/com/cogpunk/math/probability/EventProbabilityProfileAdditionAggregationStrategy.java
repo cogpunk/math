@@ -9,14 +9,14 @@ import com.cogpunk.math.NumberOperator;
  * 
  * @param <E> The Number specifying the event
  */
-public class ProbabilityProfileAdditionAggregationStrategy<E extends Number> implements ProbabilityProfileAggregationStrategy<E, E> {
+public class EventProbabilityProfileAdditionAggregationStrategy<E extends Number> implements EventProbabilityProfileAggregationStrategy<E, E> {
 
 	private NumberOperator<E> numberOperator;
 	
 	/**
 	 * @param numberOperatorThe operator stable to manipulating the event
 	 */
-	public ProbabilityProfileAdditionAggregationStrategy(NumberOperator<E> numberOperator) {
+	public EventProbabilityProfileAdditionAggregationStrategy(NumberOperator<E> numberOperator) {
 		this.numberOperator = numberOperator;
 	}
 	

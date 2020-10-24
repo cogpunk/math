@@ -18,7 +18,7 @@ public class EventLessThanSelector <E extends Comparable<E>, P extends Number> i
 	}
 
 	@Override
-	public Set<E> selectEvents(ProbabilityProfile<E, P> profile) {
+	public Set<E> selectEvents(EventProbabilityProfile<E, P> profile) {
 		
 		TreeMap<E,P> map = new TreeMap<E,P>();
 		

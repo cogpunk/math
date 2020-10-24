@@ -11,16 +11,16 @@ import org.junit.Test;
 import com.cogpunk.math.FractionOperator;
 import com.cogpunk.math.IntegerOperator;
 
-public class ProbabilityProfileAggegatorTest {
+public class EventProbabilityProfileAggegatorTest {
 	
 
 	@Test
 	public void testSingleProbabilityProfile() {
 		
-		ProbabilityProfile<Integer, Fraction> profile =  createProfile(6);
+		EventProbabilityProfile<Integer, Fraction> profile =  createProfile(6);
 		
-		ProbabilityProfileAggegator<Integer, Integer, Fraction> aggregator 
-		= new ProbabilityProfileAggegator<Integer, Integer, Fraction>(new ProbabilityProfileAdditionAggregationStrategy(new IntegerOperator()), new FractionOperator(), profile);
+		EventProbabilityProfileAggegator<Integer, Integer, Fraction> aggregator 
+		= new EventProbabilityProfileAggegator<Integer, Integer, Fraction>(new EventProbabilityProfileAdditionAggregationStrategy(new IntegerOperator()), new FractionOperator(), profile);
 		
 		assertEquals(profile.map(), aggregator.map());
 		
@@ -29,13 +29,13 @@ public class ProbabilityProfileAggegatorTest {
 	@Test
 	public void testEqualsHashCode() {
 		
-		ProbabilityProfile<Integer, Fraction> profile =  createProfile(6);
+		EventProbabilityProfile<Integer, Fraction> profile =  createProfile(6);
 		
-		ProbabilityProfileAggegator<Integer, Integer, Fraction> aggregator1 
-		= new ProbabilityProfileAggegator<Integer, Integer, Fraction>(new ProbabilityProfileAdditionAggregationStrategy(new IntegerOperator()), new FractionOperator(), profile);
+		EventProbabilityProfileAggegator<Integer, Integer, Fraction> aggregator1 
+		= new EventProbabilityProfileAggegator<Integer, Integer, Fraction>(new EventProbabilityProfileAdditionAggregationStrategy(new IntegerOperator()), new FractionOperator(), profile);
 		
-		ProbabilityProfileAggegator<Integer, Integer, Fraction> aggregator2
-		= new ProbabilityProfileAggegator<Integer, Integer, Fraction>(new ProbabilityProfileAdditionAggregationStrategy(new IntegerOperator()), new FractionOperator(), profile);
+		EventProbabilityProfileAggegator<Integer, Integer, Fraction> aggregator2
+		= new EventProbabilityProfileAggegator<Integer, Integer, Fraction>(new EventProbabilityProfileAdditionAggregationStrategy(new IntegerOperator()), new FractionOperator(), profile);
 		
 		
 		assertEquals(aggregator1, aggregator2);
@@ -47,7 +47,7 @@ public class ProbabilityProfileAggegatorTest {
 	@Test
 	public void testTwoProbabilityProfileAddition() {
 		
-		ProbabilityProfile<Integer, Fraction> profile =  createProfile(6);
+		EventProbabilityProfile<Integer, Fraction> profile =  createProfile(6);
 		
 		Map<Integer, Fraction> map = new TreeMap<Integer, Fraction>();
 		
@@ -65,8 +65,8 @@ public class ProbabilityProfileAggegatorTest {
 		
 		ComparableEventProbabilityProfile<Integer, Fraction> expectedProfile = new ComparableEventProbabilityProfileImpl<Integer, Fraction>(map, new FractionOperator());
 		
-		ProbabilityProfileAggegator<Integer, Integer, Fraction> aggregator 
-			= new ProbabilityProfileAggegator<Integer, Integer, Fraction>(new ProbabilityProfileAdditionAggregationStrategy<Integer>(new IntegerOperator()), new FractionOperator(), profile, profile);
+		EventProbabilityProfileAggegator<Integer, Integer, Fraction> aggregator 
+			= new EventProbabilityProfileAggegator<Integer, Integer, Fraction>(new EventProbabilityProfileAdditionAggregationStrategy<Integer>(new IntegerOperator()), new FractionOperator(), profile, profile);
 		
 		assertEquals(expectedProfile.map(), aggregator.map());
 	}
@@ -74,7 +74,7 @@ public class ProbabilityProfileAggegatorTest {
 	@Test
 	public void testTwoProbabilityProfileHighest() {
 		
-		ProbabilityProfile<Integer, Fraction> profile =  createProfile(6);
+		EventProbabilityProfile<Integer, Fraction> profile =  createProfile(6);
 		
 		Map<Integer, Fraction> map = new TreeMap<Integer, Fraction>();
 		
@@ -87,8 +87,8 @@ public class ProbabilityProfileAggegatorTest {
 		
 		ComparableEventProbabilityProfile<Integer, Fraction> expectedProfile = new ComparableEventProbabilityProfileImpl<Integer, Fraction>(map, new FractionOperator());
 		
-		ProbabilityProfileAggegator<Integer, Integer, Fraction> aggregator 
-			= new ProbabilityProfileAggegator<Integer, Integer, Fraction>(new ProbabilityProfileHighestAggregationStrategy<Integer>(), new FractionOperator(), profile, profile);
+		EventProbabilityProfileAggegator<Integer, Integer, Fraction> aggregator 
+			= new EventProbabilityProfileAggegator<Integer, Integer, Fraction>(new EventProbabilityProfileHighestAggregationStrategy<Integer>(), new FractionOperator(), profile, profile);
 		
 		assertEquals(expectedProfile.map(), aggregator.map());
 	}
@@ -96,7 +96,7 @@ public class ProbabilityProfileAggegatorTest {
 	@Test
 	public void testTwoProbabilityProfileLowest() {
 		
-		ProbabilityProfile<Integer, Fraction> profile = createProfile(6);
+		EventProbabilityProfile<Integer, Fraction> profile = createProfile(6);
 		
 		Map<Integer, Fraction> map = new TreeMap<Integer, Fraction>();
 		
@@ -109,8 +109,8 @@ public class ProbabilityProfileAggegatorTest {
 		
 		ComparableEventProbabilityProfile<Integer, Fraction> expectedProfile = new ComparableEventProbabilityProfileImpl<Integer, Fraction>(map, new FractionOperator());
 		
-		ProbabilityProfileAggegator<Integer, Integer, Fraction> aggregator 
-			= new ProbabilityProfileAggegator<Integer, Integer, Fraction>(new ProbabilityProfileLowestAggregationStrategy<Integer>(), new FractionOperator(), profile, profile);
+		EventProbabilityProfileAggegator<Integer, Integer, Fraction> aggregator 
+			= new EventProbabilityProfileAggegator<Integer, Integer, Fraction>(new EventProbabilityProfileLowestAggregationStrategy<Integer>(), new FractionOperator(), profile, profile);
 		
 		assertEquals(expectedProfile.map(), aggregator.map());
 	}
@@ -118,7 +118,7 @@ public class ProbabilityProfileAggegatorTest {
 	@Test
 	public void testThreeProbabilityProfileAddition() {
 		
-		ProbabilityProfile<Integer, Fraction> profile = createProfile(6);
+		EventProbabilityProfile<Integer, Fraction> profile = createProfile(6);
 		
 		Map<Integer, Fraction> map = new TreeMap<Integer, Fraction>();
 		map.put(3, new Fraction(1,216));
@@ -140,8 +140,8 @@ public class ProbabilityProfileAggegatorTest {
 		
 		ComparableEventProbabilityProfile<Integer, Fraction> expectedProfile = new ComparableEventProbabilityProfileImpl<Integer, Fraction>(map, new FractionOperator());
 		
-		ProbabilityProfileAggegator<Integer, Integer, Fraction> aggregator 
-		= new ProbabilityProfileAggegator<Integer, Integer, Fraction>(new ProbabilityProfileAdditionAggregationStrategy<Integer>(new IntegerOperator()), new FractionOperator(), profile, profile, profile);
+		EventProbabilityProfileAggegator<Integer, Integer, Fraction> aggregator 
+		= new EventProbabilityProfileAggegator<Integer, Integer, Fraction>(new EventProbabilityProfileAdditionAggregationStrategy<Integer>(new IntegerOperator()), new FractionOperator(), profile, profile, profile);
 		
 		assertEquals(expectedProfile.map(), aggregator.map());
 	}
@@ -154,8 +154,8 @@ public class ProbabilityProfileAggegatorTest {
 		map.put(1, new Fraction(3,4));
 		ComparableEventProbabilityProfile<Integer, Fraction> profile = new ComparableEventProbabilityProfileImpl<Integer, Fraction>(map, new FractionOperator());
 		
-		ProbabilityProfileAggegator<Integer, Integer, Fraction> aggregator 
-		= new ProbabilityProfileAggegator<Integer, Integer, Fraction>(new ProbabilityProfileAdditionAggregationStrategy<Integer>(new IntegerOperator()), new FractionOperator(), profile, profile);
+		EventProbabilityProfileAggegator<Integer, Integer, Fraction> aggregator 
+		= new EventProbabilityProfileAggegator<Integer, Integer, Fraction>(new EventProbabilityProfileAdditionAggregationStrategy<Integer>(new IntegerOperator()), new FractionOperator(), profile, profile);
 		
 		Map<Integer, Fraction> expectedMap = new TreeMap<Integer, Fraction>();
 		expectedMap.put(0, new Fraction(1,16));
@@ -167,7 +167,7 @@ public class ProbabilityProfileAggegatorTest {
 		
 	}
 	
-	public ProbabilityProfile<Integer, Fraction> createProfile(int bins) {
+	public EventProbabilityProfile<Integer, Fraction> createProfile(int bins) {
 		
 		Fraction prob = new Fraction(1, bins);
 		
