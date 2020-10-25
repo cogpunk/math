@@ -48,9 +48,8 @@ public class EventProbabilityProfileAggegator<I, E, P extends Number> implements
 	
 	/**
 	 * @param aggregationStrategy The strategy to use to aggregate the results
-	 * @param iteration The number of the iteration (as in the index of the dice to iterate over 
-	 * @param dice The sets of dice
-	 * @return
+	 * @param probabilityProfiles The profiles to aggregate
+	 * @return The calculated Event Probability Profile
 	 */
 	protected EventProbabilityProfile<E, P> calculateProbabilityProfile(
 			EventProbabilityProfileAggregationStrategy<I, E> aggregationStrategy, 

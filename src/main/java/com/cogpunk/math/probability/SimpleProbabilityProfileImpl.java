@@ -8,8 +8,8 @@ import java.util.TreeMap;
 /**
  * A simple implementation of the ProbabilityProfile
  * 
- * @param <E>
- * @param <P>
+ * @param <E> The Event
+ * @param <P> The probability of the even occurring
  */
 public class SimpleProbabilityProfileImpl<E,P extends Number> implements EventProbabilityProfile<E, P> {
 

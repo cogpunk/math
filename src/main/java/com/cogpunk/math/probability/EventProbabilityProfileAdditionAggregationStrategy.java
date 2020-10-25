@@ -14,7 +14,7 @@ public class EventProbabilityProfileAdditionAggregationStrategy<E extends Number
 	private NumberOperator<E> numberOperator;
 	
 	/**
-	 * @param numberOperatorThe operator stable to manipulating the event
+	 * @param numberOperator The operator stable to manipulating the event
 	 */
 	public EventProbabilityProfileAdditionAggregationStrategy(NumberOperator<E> numberOperator) {
 		this.numberOperator = numberOperator;

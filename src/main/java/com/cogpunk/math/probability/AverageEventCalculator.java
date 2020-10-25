@@ -79,6 +79,7 @@ public class AverageEventCalculator<E extends Comparable<E>,P extends Number & C
 	}
 	
 	/**
+	 * @param profile the profile
 	 * @return The sum of all of the probabilities
 	 */
 	protected P calculateTotalProbability(EventProbabilityProfile<E,P> profile) {

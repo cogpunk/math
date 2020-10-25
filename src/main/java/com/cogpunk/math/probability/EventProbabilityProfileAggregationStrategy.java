@@ -12,7 +12,7 @@ public interface EventProbabilityProfileAggregationStrategy<I, E> {
 	
 	/**
 	 * @param results the list of 
-	 * @return
+	 * @return The output event probability
 	 */
 	public E aggregate(List<I> results);
 
