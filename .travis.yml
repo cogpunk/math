@@ -5,37 +5,33 @@ services:
 cache:
   directories:
   - "$HOME/.cache"
-
 env:
   global:
   - secure: E7uy/twA1tfIa/KFHSrPGMvTrrk4wYnbzXsugjA1hVPOzmzk7dupaObuFf+zp6Qijm73DwN85sup4t9vk1o3xDt9TiMS1jmMi7gxKB/4KnuEWYKL/NtXN6/+8DPZyfYgGGQ0EAXTGQNaAabALgBS5GUnFX268DDH6k/B4ajKSTcZpRxEeOSIoKKZ0+9ZX6bytPFSd2/Mf2irwyx4G1cAF5VIli/VH83rNqB0Iu2f/QAOqK0DeUeonVfKUYnGTojQqUlPqukhHgfaNkzyhGGDtr8Q35FNIlZIjr4eLH//+hpN4VsXWOQ3OmZL3GECgbXLe1ZuMbn602IuRyAUqUMYAlGSoNai5iYTv2ley2M+lrZKkCObSO12n/p4VARo1+BmQuiEDCe8fSKTxUc3TVd6aF+oKgMKxkm4OeyPCqwVIhPI/gB8DrAKaGgLthK+rBzG6r88RbT+KyGCi31tktcGkls6lPffwONgmwdCGwmAl4jQ75r07P3XZTojPtbzqqu4OUr5jhOGEGBwNr1OdoZ5le4t06jhQzrDBjPvmnaB8KghbVDej+wPH9reyUJsfoDME71B7ut3YXqDVJOTtUVcfly+L0D4P8fryfL9w313suKA/p6eeVEq2PzTVECd+PxXYC/9nUDs/LRC4IL1qhpPx3ftEsPWEZzZk+Ya0YTYHqM=
   - secure: Kp5W8CYb02EpgBcmo7LQBRpfNH5L5h6AgUQmOqj8mgnEVNIEbBNUqSFo28ZqPFLEFVgmoO+dQGx1493/ozZh9E7JGMpFmH8eNhuMPd/KsJd5DzNyfsTAztOYiSkaKjVRxb11Oq6y992RcUFckjKcbxv6mt20K863asmOq8JFN7Vclnp4naEdpttDF8NSTtlNjD86maL334Wjib1nkq2m40IUU1ARyjBQ9IEBFgCSd1nYzsJKAOgH0cnFklxQ/pKBJgK7DIYKnOPeAhlIwekxq1qzFcT0OevmyPZr+xtCw7HB3fafxhdBItEFUUuNhjSLkk1bX6uzEIdgaHKqr/jygS7GS2uIwtQVSKjjeOybDWD+d/O+3tIVaSC8qExyWmhs+nltxW1GCxaxiPg/LyJNqCoBvgCUg9//woXMmdqGYJqK/JTs1YR9bbNVfwTzSCfHFpnLH/jZRHHcB88zh12J9NjPFwsxbtjJtMT0TMPUWEi2mu7yi5K4aub1HdVRNo1PtCOfdYj4Bc2dN/3rl+1YroziAnidVEgWUOS+p59Gj9W0TKF5H7Bb5zhgk4RSbwG8btXI51dNVUOtA1dSsRgODXv4+bu1ArqD87izttJQEuK0nvXdirNS8PDjM4TLVaf1+PDVi2t/lK9q/QowkpnG9OXLaO6QUo9uI73YMlw/QhE=
   - secure: JHOad/mSeKRZyo83VY/Ud/o8GDhMLEUCItYx9msZVJMgfLu6CtQcyOGOpmmQKJbxrUPyf9lUYMRLzLDWIjk3a5zSEIA1AJRDimgE65tJasdg9H06Hgj+vppkIri/gFXShBlFL2jndwPDTx4yqzsUsgRdHBHvRjCpGWVCJbWCkrIf13eLuxrtWN8V30ftYFyfGRSULK9tCG+1WDmWqNbWQKKjG2CnKh/UpEGBV8Rlk+zSgD1r7vGaNlhz4BQyYOgiFn6miEuZJLl1P9570MRY8fGTrOz4CMA6NeAXMF9jczV2FuUo1Cfv+eOm+DzN2v0F3ilW/YHqKi0E5RxFCeROo8epo1QCCkGRVBrFbFYQ/huzkfA5phLA+UutJJBfU2793VMM0ecf81oYIuJ8ly2CdwiEubLvIVMhfGRvY6y4ctDpbI8cXYwdTASWWMoQzr27mR5xJMW7sDB65tuTwaiDSWDTfBdcdFMpgTk7/toJK+RvmzpWAjSI9KJWMF9di7QDEgeQaQMMc4EouRfTbDSJbZ+MF89NbOzfvzzZOaCHfyYNTJ7ERFj9PJLZ6kWobXZAp0MKRrUmMJeXu83W5su/FBtT36v+oyLboK+h7FXUWekxdc9E+Tws3fGp/jMrDGkqO6RxjoPUrCH3vlpnd3IcpQfiUMVrXxbCCq2rTjClKbQ=
   - secure: ZHoAhQAVV0fo2XGknsbkM0gm7gDvV/5N1CwMNid+ytE3seKUf46/TO+cQ8JN1A0FH/ezcOjNrnqe4fDuW8gd6iWdPhT3z1k3vgxErfdUhPIE/OMGAT/vtekkSmbNzb3s9XgDbVyKpPMgFgX52Nomxbbx/m4oTr1dydd0hZ/ayGPPynNC2J5lLhhWTHz2+SKYSYgyWF5lPo8IruwSpcwUPYOs52ppYpel3D6RowBnLqQwF7mL6cp9GqhR/8y56UWh1ZpuedxRj5pxprhroQIzOHL5oM5hFQQgSHho5tJHlDCEtQn8b2atKI7xqN+CJdM42buDV+KR/50OrW68BFjZo+l55Xbxi2EZgGJlkuSVU91ewLy8YHvx5eGXw79q+ELkRa23w8OwpmFq/Yp3yhrUS6ccPM3D5Tc3vCXR12RWsIhMQ8OnYHWeVl3Fp+f0/1HZ7YTJ0sdWEFICgWkYpcjGhhLct+GrFMLLFUpruKg3JB4HxWx07sMv6ukZKKA2XLQwRDQywglOyUPsxLL5qMeXY3H3Ui3eLNawhlKjDoNcXOJXMIlRt1DjM8o2+eYlJj8NbrMMmOlLrLWwlgeZ0KO2SN08iBxEW6V8JwPk22L7Y4JfwsLwwk7c2gtpzeboLuGHj3IA+g02QHkJP54AkLuor4d3BXxd/2xIC4k54vw/OKc=
-
 addons:
   sonarcloud:
     organization: cogpunk
     token:
       secure: Su+f+ClHWc7h/ONUWRdYvZ8IzSQJFHkQk16UTQoGrTH1Mzm8MDbNyL1udBQGMQMSOE/NxJkS2cpOdfa6nYuRymWR8cTz9YOYPo5ZrAAXKXXMt+0n43hHqawFwTM1Rt2KSB3ZLbpgAu7AM/FMcRNdgHwqyNPMspSXF1QToz2J507cqORNwCoQhypnqOAee0dy6JBo2c1X5EDKi5l27e15KLlJka0pAimMPuwMFy/Se4DzgL2E+d8y+XBigkXiOSzEQdY8E+DvQAZCCaNF0oUwucUxaVjZaOngvH9W477AQAFCuaE4OJMrIzb3prW7IqLq8yemFzV8BMCC5okWCCql++8O4r7CIIuwEAPJ4xkMtD+/kiWLM9qccajM5W388yPIz5uoZlDcKp7iVDdgHMMr+CE4OUhdjP5GbWQMC1erbNxo8u/Pb8myfHZ1PDEJemliGuw5b81ThVU2Vv0Ch+8Z+CYCsrzdxUKZcOOAjyngcU3ti1cqdu5pGM/OyZIp5PPeWpGPnoFWInpQcTg6z3LPueQe/LE60Mtvc/JUdaWb/yKhr356h3IhdtM8z7NpMZ1YezN+1fISq8mXBWqv92IUe3mVINxr4hbqM1UudmMRS1M7yCBTitBye4h/FmF3vpH1fOk3FaJ0f3ndLkZ5lMs/2amFDvbyQctfoTy5Po82iaw=
-
 script:
 - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar -Dsonar.projectKey=cogpunk_math
-
 before_deploy:
 - openssl aes-256-cbc -K $encrypted_4f0d00631887_key -iv $encrypted_4f0d00631887_iv
   -in .travis/gpg.asc.enc -out .travis/gpg.asc -d
-
 deploy:
--
-  skip_cleanup: true
+- skip_cleanup: true
   provider: script
-  script: ./deploy
+  script: "./deploy"
   on:
     branch: master
--
-  skip_cleanup: true
+- skip_cleanup: true
   provider: script
-  script: ./deploy
+  script: "./deploy"
   on:
     tags: true
+before_install:
+- openssl aes-256-cbc -K $encrypted_4f0d00631887_key -iv $encrypted_4f0d00631887_iv
+  -in gpg.asc.enc -out .travis/gpg.asc -d
