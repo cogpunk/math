@@ -13,7 +13,46 @@ Cogpunk Math is a set of mathematical utilities for general use
 
 The build requires a Java 6 JDK (or higher) and uses [Maven](https://maven.apache.org)
 
+	mvn install
+
+## Adding as a dependency
+
+	<dependency>
+		<groupId>com.cogpunk</groupId>
+		<artifactId>cogpunk-math</artifactId>
+		<version>1.0.0</version>
+	</dependency>
+
 ## License
 
 Code is under the [Apache Licence v2](https://www.apache.org/licenses/LICENSE-2.0.txt).
+
+## Example
+
+Determine the probability profile of adding 3 six-sided dice together
+
+	// Create a profile for a 6-sided dice
+	
+	Fraction prob = new Fraction(1, 6);
+	
+	Map<Integer, Fraction> map = new TreeMap<Integer, Fraction>();
+	
+	for (int n = 1; n <= 6; n++) {
+		map.put(n, prob);
+	}
+	
+	ComparableEventProbabilityProfileImpl<Integer, Fraction> dice = new ComparableEventProbabilityProfileImpl<Integer, Fraction>(
+			map, new FractionOperator());
+	
+	// Determine the probabilities of all possible results of adding the dice values together using the EventProbabilityProfileAdditionAggregationStrategy
+	
+	EventProbabilityProfileAggregator<Integer, Integer, Fraction> aggregator = new EventProbabilityProfileAggregator<Integer, Integer, Fraction>(
+			new EventProbabilityProfileAdditionAggregationStrategy<Integer>(new IntegerOperator()),
+			new FractionOperator(), dice, dice, dice);
+	
+	// Print out the results to the console
+	
+	System.out.println(aggregator);
+	
+	
 
