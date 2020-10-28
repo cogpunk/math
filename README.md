@@ -8,6 +8,8 @@ Cogpunk Math is a set of mathematical utilities for general use
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=cogpunk_math&metric=sqale_rating)](https://sonarcloud.io/dashboard?id=cogpunk_math)
 [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=cogpunk_math&metric=reliability_rating)](https://sonarcloud.io/dashboard?id=cogpunk_math)
 [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=cogpunk_math&metric=security_rating)](https://sonarcloud.io/dashboard?id=cogpunk_math)
+[![Apache License, Version 2.0](https://img.shields.io/github/license/cogpunk/math)](https://opensource.org/licenses/Apache-2.0)
+[![Cogpunk Math](https://maven-badges.herokuapp.com/maven-central/com.cogpunk/cogpunk-math/badge.svg)](https://search.maven.org/artifact/com.cogpunk/cogpunk-math/)
 
 ## Building from source
 
