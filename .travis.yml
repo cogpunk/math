@@ -34,4 +34,4 @@ deploy:
   script: "./scripts/deploy"
   skip_cleanup: true
   on:
-    tag: true
+    tags: true
