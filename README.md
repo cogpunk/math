@@ -41,14 +41,17 @@ Determine the probability profile of adding 3 six-sided dice together
 		map.put(n, prob);
 	}
 	
-	ComparableEventProbabilityProfileImpl<Integer, Fraction> dice = new ComparableEventProbabilityProfileImpl<Integer, Fraction>(
+	ComparableEventProbabilityProfileImpl<Integer, Fraction> dice 
+		= new ComparableEventProbabilityProfileImpl<Integer, Fraction>(
 			map, new FractionOperator());
 	
-	// Determine the probabilities of all possible results of adding the dice values together using the EventProbabilityProfileAdditionAggregationStrategy
+	// Determine the probabilities of all possible results of adding the dice values together 
+	// using the EventProbabilityProfileAdditionAggregationStrategy
 	
-	EventProbabilityProfileAggregator<Integer, Integer, Fraction> aggregator = new EventProbabilityProfileAggregator<Integer, Integer, Fraction>(
-			new EventProbabilityProfileAdditionAggregationStrategy<Integer>(new IntegerOperator()),
-			new FractionOperator(), dice, dice, dice);
+	EventProbabilityProfileAggregator<Integer, Integer, Fraction> aggregator 
+		= new EventProbabilityProfileAggregator<Integer, Integer, Fraction>(
+			new EventProbabilityProfileAdditionAggregationStrategy<Integer>(
+				new IntegerOperator()), new FractionOperator(), dice, dice, dice);
 	
 	// Print out the results to the console
 	
