@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.cogpunk.math.NumberOperator;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.EqualsBuilder;
 
 /**
  * Inverts the probability of all the events. For example, 90% becomes 10%
@@ -37,5 +39,29 @@ public class EventProbabilityProfileInverter<E, P extends Number> implements Eve
 	public Map<E, P> map() {
 		return map;
 	}
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean equals(final Object other) {
+		if (!(other instanceof EventProbabilityProfileInverter)) {
+			return false;
+		}
+		EventProbabilityProfileInverter<?, ?> castOther = (EventProbabilityProfileInverter<?, ?>) other;
+		return new EqualsBuilder().append(map, castOther.map).isEquals();
+	}
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder().append(map).toHashCode();
+	}
+	
+	
 
 }

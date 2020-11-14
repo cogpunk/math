@@ -10,7 +10,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.cogpunk.math.FractionOperator;
-import com.cogpunk.math.probability.ComparableEventProbabilityProfileImpl;
+
+import nl.jqno.equalsverifier.EqualsVerifier;
 
 public class ComparableEventProbabilityProfileImplTest {
 	
@@ -90,6 +91,13 @@ public class ComparableEventProbabilityProfileImplTest {
 		assertEquals(new Fraction(0,6), profile.getProbabilityLessThan(1));
 		assertEquals(new Fraction(5,6), profile.getProbabilityLessThan(6));
 		assertEquals(new Fraction(6,6), profile.getProbabilityLessThan(8));
+	}
+	
+	@Test
+	public void testEqualsAndHashCode() {
+		
+		EqualsVerifier.simple().forClass(ComparableEventProbabilityProfileImpl.class).verify();
+		
 	}
 
 }

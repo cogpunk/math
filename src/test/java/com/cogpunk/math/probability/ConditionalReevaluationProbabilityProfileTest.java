@@ -13,6 +13,8 @@ import org.junit.Test;
 
 import com.cogpunk.math.FractionOperator;
 
+import nl.jqno.equalsverifier.EqualsVerifier;
+
 public class ConditionalReevaluationProbabilityProfileTest {
 	
 	private EventProbabilityProfile<Integer, Fraction> profile;
@@ -83,6 +85,13 @@ public class ConditionalReevaluationProbabilityProfileTest {
 		
 		
 		assertEquals(expectedMap, reeval.map());
+	}
+	
+	@Test
+	public void testEqualsAndHashCode() {
+		
+		EqualsVerifier.simple().forClass(ConditionalReevaluationProbabilityProfile.class).verify();
+		
 	}
 
 }

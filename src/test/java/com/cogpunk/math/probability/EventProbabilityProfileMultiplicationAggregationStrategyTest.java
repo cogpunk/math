@@ -9,6 +9,8 @@ import org.junit.Test;
 
 import com.cogpunk.math.IntegerOperator;
 
+import nl.jqno.equalsverifier.EqualsVerifier;
+
 public class EventProbabilityProfileMultiplicationAggregationStrategyTest {
 
 	@Test
@@ -22,5 +24,13 @@ public class EventProbabilityProfileMultiplicationAggregationStrategyTest {
 		//assertEquals((Integer) 0, new ProbabilityProfileMultiplicationAggregationStrategy<Integer>(new IntegerOperator()).aggregate(new ArrayList<Integer>()));
 		
 	}
+	
+	@Test
+	public void testEqualsAndHashCode() {
+		
+		EqualsVerifier.simple().forClass(EventProbabilityProfileMultiplicationAggregationStrategy.class).verify();
+		
+	}
+
 
 }

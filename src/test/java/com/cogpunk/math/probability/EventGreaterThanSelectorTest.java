@@ -11,6 +11,8 @@ import org.apache.commons.math3.fraction.Fraction;
 import org.junit.Before;
 import org.junit.Test;
 
+import nl.jqno.equalsverifier.EqualsVerifier;
+
 public class EventGreaterThanSelectorTest {
 
 	private EventProbabilityProfile<Integer, Fraction> profile;
@@ -57,6 +59,13 @@ public class EventGreaterThanSelectorTest {
 		Set<Integer> set = new EventGreaterThanSelector<Integer, Fraction>(7).selectEvents(profile);
 		
 		assertEquals(new HashSet<Integer>(), set);
+		
+	}
+	
+	@Test
+	public void testEqualsAndHashCode() {
+		
+		EqualsVerifier.simple().forClass(EventGreaterThanSelector.class).verify();
 		
 	}
 

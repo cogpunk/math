@@ -7,6 +7,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import nl.jqno.equalsverifier.EqualsVerifier;
+
 public class SimpleEventProbabilityProfileImplTest {
 	
 	private Map<String, Integer> map1;
@@ -55,6 +57,13 @@ public class SimpleEventProbabilityProfileImplTest {
 		SimpleProbabilityProfileImpl<String, Integer> p1 = new SimpleProbabilityProfileImpl<String, Integer> (this.map1);
 		
 		Assert.assertEquals(this.map1, new HashMap<String, Integer>(p1.internalMap()));
+	}
+	
+	@Test
+	public void testEqualsAndHashCode() {
+		
+		EqualsVerifier.simple().forClass(SimpleProbabilityProfileImpl.class).verify();
+		
 	}
 
 }

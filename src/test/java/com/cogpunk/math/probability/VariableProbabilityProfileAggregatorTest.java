@@ -12,6 +12,8 @@ import org.junit.Test;
 import com.cogpunk.math.FractionOperator;
 import com.cogpunk.math.IntegerOperator;
 
+import nl.jqno.equalsverifier.EqualsVerifier;
+
 public class VariableProbabilityProfileAggregatorTest {
 
 	@Before
@@ -53,6 +55,13 @@ public class VariableProbabilityProfileAggregatorTest {
 		
 		assertEquals(expMap, agg.map());
 				
+		
+	}
+	
+	@Test
+	public void testEqualsAndHashCode() {
+		
+		EqualsVerifier.simple().forClass(VariableProbabilityProfileAggregator.class).verify();
 		
 	}
 

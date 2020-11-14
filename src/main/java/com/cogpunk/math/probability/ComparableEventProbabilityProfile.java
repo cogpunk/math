@@ -25,5 +25,9 @@ public interface ComparableEventProbabilityProfile<E extends Comparable<E>,P ext
 	 * @return The probability of the event being less than the supplied event
 	 */
 	public P getProbabilityLessThan(E target);
+	
+	public int hashCode();
+	
+	public boolean equals(Object obj);
 
 }

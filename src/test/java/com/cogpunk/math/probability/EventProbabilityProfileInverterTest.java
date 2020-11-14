@@ -10,6 +10,8 @@ import org.junit.Test;
 
 import com.cogpunk.math.FractionOperator;
 
+import nl.jqno.equalsverifier.EqualsVerifier;
+
 public class EventProbabilityProfileInverterTest {
 
 	@Test
@@ -25,6 +27,13 @@ public class EventProbabilityProfileInverterTest {
 		assertEquals(new Fraction(5,6), inverted.getProbability(1));
 		assertEquals(new Fraction(4,6), inverted.getProbability(2));
 		assertEquals(new Fraction(3,6), inverted.getProbability(3));
+		
+	}
+	
+	@Test
+	public void testEqualsAndHashCode() {
+		
+		EqualsVerifier.simple().forClass(EventProbabilityProfileInverter.class).verify();
 		
 	}
 

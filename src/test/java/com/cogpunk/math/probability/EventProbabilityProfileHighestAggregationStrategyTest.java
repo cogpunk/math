@@ -7,6 +7,8 @@ import java.util.Arrays;
 
 import org.junit.Test;
 
+import nl.jqno.equalsverifier.EqualsVerifier;
+
 public class EventProbabilityProfileHighestAggregationStrategyTest {
 
 	
@@ -19,6 +21,13 @@ public class EventProbabilityProfileHighestAggregationStrategyTest {
 		assertEquals((Integer) 6, new EventProbabilityProfileHighestAggregationStrategy<Integer>().aggregate(Arrays.asList(args)));
 		
 		assertEquals(null, new EventProbabilityProfileHighestAggregationStrategy<Integer>().aggregate(new ArrayList<Integer>()));
+	}
+	
+	@Test
+	public void testEqualsAndHashCode() {
+		
+		EqualsVerifier.simple().forClass(EventProbabilityProfileHighestAggregationStrategy.class).verify();
+		
 	}
 
 }

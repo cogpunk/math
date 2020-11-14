@@ -10,6 +10,8 @@ import org.junit.Test;
 import com.cogpunk.math.IntegerOperator;
 import com.cogpunk.math.probability.EventProbabilityProfileAdditionAggregationStrategy;
 
+import nl.jqno.equalsverifier.EqualsVerifier;
+
 public class EventProbabilityProfileAdditionAggregationStrategyTest {
 
 	@Test
@@ -20,6 +22,13 @@ public class EventProbabilityProfileAdditionAggregationStrategyTest {
 		assertEquals((Integer) 21, new EventProbabilityProfileAdditionAggregationStrategy<Integer>(new IntegerOperator()).aggregate(Arrays.asList(args)));
 		
 		assertEquals((Integer) 0, new EventProbabilityProfileAdditionAggregationStrategy<Integer>(new IntegerOperator()).aggregate(new ArrayList<Integer>()));
+		
+	}
+	
+	@Test
+	public void testEqualsAndHashCode() {
+		
+		EqualsVerifier.simple().forClass(EventProbabilityProfileAdditionAggregationStrategy.class).verify();
 		
 	}
 

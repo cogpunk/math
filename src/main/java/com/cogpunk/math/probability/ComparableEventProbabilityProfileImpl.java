@@ -4,6 +4,8 @@ import java.util.Collection;
 import java.util.Map;
 
 import com.cogpunk.math.NumberOperator;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.EqualsBuilder;
 
 /**
  * A ProbabilityProfile for Comparable Events
@@ -64,6 +66,23 @@ public class ComparableEventProbabilityProfileImpl<E extends Comparable<E>, P ex
 	@Override
 	public String toString() {
 		return "NumberProbabilityProfileImpl [profile=" + map() + "]";
+	}
+
+	@Override
+	public boolean equals(final Object other) {
+		if (!(other instanceof ComparableEventProbabilityProfileImpl)) {
+			return false;
+		}
+		ComparableEventProbabilityProfileImpl<?, ?> castOther = (ComparableEventProbabilityProfileImpl<?, ?>) other;
+		return new EqualsBuilder()
+				.append(profile, castOther.profile)
+				.append(numberOperator, castOther.numberOperator)
+				.isEquals();
+	}
+
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder().append(numberOperator).append(profile).toHashCode();
 	}
 
 }

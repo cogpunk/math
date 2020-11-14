@@ -10,6 +10,8 @@ import org.junit.Test;
 
 import com.cogpunk.math.FractionOperator;
 
+import nl.jqno.equalsverifier.EqualsVerifier;
+
 public class AverageEventCalculatorTest {
 
 	@Test
@@ -67,5 +69,13 @@ public class AverageEventCalculatorTest {
 		assertEquals(new Fraction(5,3), calc.calculateTotalProbability(profile));
 		
 	}
+	
+	@Test
+	public void testEqualsAndHashCode() {
+		
+		EqualsVerifier.simple().forClass(AverageEventCalculator.class).verify();
+		
+	}
+
 
 }

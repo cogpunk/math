@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 
 import com.cogpunk.math.NumberOperator;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.EqualsBuilder;
 
 /**
  * 
@@ -135,32 +137,6 @@ public class EventProbabilityProfileAggregator<I, E, P extends Number> implement
 	
 
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((probabilityProfile == null) ? 0 : probabilityProfile.hashCode());
-		return result;
-	}
-
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		EventProbabilityProfileAggregator<I, E, P> other = (EventProbabilityProfileAggregator<I, E, P>) obj;
-		if (probabilityProfile == null) {
-			if (other.map() != null)
-				return false;
-		} else if (!map().equals(other.map()))
-			return false;
-		return true;
-	}
-
 
 	@Override
 	public Map<E, P> map() {
@@ -171,6 +147,27 @@ public class EventProbabilityProfileAggregator<I, E, P extends Number> implement
 	@Override
 	public String toString() {
 		return "ProbabilityProfileAggegator [probabilityProfile=" + probabilityProfile + "]";
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean equals(final Object other) {
+		if (!(other instanceof EventProbabilityProfileAggregator)) {
+			return false;
+		}
+		EventProbabilityProfileAggregator<?, ?, ?> castOther = (EventProbabilityProfileAggregator<?, ?, ?>) other;
+		return new EqualsBuilder().append(probabilityProfile, castOther.probabilityProfile)
+				.append(numberOperator, castOther.numberOperator).isEquals();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder().append(probabilityProfile).append(numberOperator).toHashCode();
 	}
 
 	

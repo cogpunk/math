@@ -4,6 +4,8 @@ import java.util.SortedMap;
 import java.util.TreeMap;
 
 import com.cogpunk.math.NumberOperator;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.EqualsBuilder;
 
 /**
  * Utility class for calculating the average event from a given profile
@@ -92,5 +94,23 @@ public class AverageEventCalculator<E extends Comparable<E>,P extends Number & C
 		
 		return totalProb;
 	}
+	
+	@Override
+	public boolean equals(final Object other) {
+		if (!(other instanceof AverageEventCalculator)) {
+			return false;
+		}
+		AverageEventCalculator<?, ?> castOther = (AverageEventCalculator<?, ?>) other;
+		return new EqualsBuilder().append(probabilityNumberOperator, castOther.probabilityNumberOperator).isEquals();
+	}
+
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder().append(probabilityNumberOperator).toHashCode();
+	}
+
+	
+	
+	
 
 }

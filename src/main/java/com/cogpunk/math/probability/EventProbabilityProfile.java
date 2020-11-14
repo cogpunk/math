@@ -19,5 +19,9 @@ public interface EventProbabilityProfile<E, P extends Number> {
 	 */
 	public Map<E, P> map();
 	
+	public int hashCode();
+	
+	public boolean equals(Object obj);
+	
 
 }

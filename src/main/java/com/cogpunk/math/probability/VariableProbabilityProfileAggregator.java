@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 
 import com.cogpunk.math.NumberOperator;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.EqualsBuilder;
 
 public class VariableProbabilityProfileAggregator<E, P extends Number> implements EventProbabilityProfile<E, P> {
 	
@@ -120,9 +122,34 @@ public class VariableProbabilityProfileAggregator<E, P extends Number> implement
 				+ probabilityProfile + ", aggregationStrategy=" + aggregationStrategy + ", numberOperator="
 				+ numberOperator + "]";
 	}
-	
-	
-	
-	
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean equals(final Object other) {
+		if (!(other instanceof VariableProbabilityProfileAggregator)) {
+			return false;
+		}
+		VariableProbabilityProfileAggregator<?,?> castOther = (VariableProbabilityProfileAggregator<?,?>) other;
+		return new EqualsBuilder().append(repeatProbabilityProfile, castOther.repeatProbabilityProfile)
+				.append(probabilityProfile, castOther.probabilityProfile)
+				.append(aggregationStrategy, castOther.aggregationStrategy)
+				.append(numberOperator, castOther.numberOperator)
+				.append(variableZeroHandler, castOther.variableZeroHandler).isEquals();
+	}
+
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder().append(repeatProbabilityProfile).append(probabilityProfile)
+				.append(aggregationStrategy).append(numberOperator).append(variableZeroHandler).toHashCode();
+	}
 
 }

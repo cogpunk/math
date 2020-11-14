@@ -3,9 +3,11 @@ package com.cogpunk.math.probability;
 import java.util.List;
 
 import com.cogpunk.math.NumberOperator;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.EqualsBuilder;
 
 /**
- * Streatgy for multiplying all of the events together 
+ * Strategy for multiplying all of the events together 
  */
 public class EventProbabilityProfileMultiplicationAggregationStrategy<E extends Number>
 		implements EventProbabilityProfileAggregationStrategy<E, E> {
@@ -46,6 +48,28 @@ public class EventProbabilityProfileMultiplicationAggregationStrategy<E extends 
 		return total;
 		
 		
+	}
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean equals(final Object other) {
+		if (!(other instanceof EventProbabilityProfileMultiplicationAggregationStrategy)) {
+			return false;
+		}
+		EventProbabilityProfileMultiplicationAggregationStrategy<?> castOther = (EventProbabilityProfileMultiplicationAggregationStrategy<?>) other;
+		return new EqualsBuilder().append(numberOperator, castOther.numberOperator).isEquals();
+	}
+
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder().append(numberOperator).toHashCode();
 	}
 
 }

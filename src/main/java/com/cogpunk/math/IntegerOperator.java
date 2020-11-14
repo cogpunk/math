@@ -27,6 +27,23 @@ public class IntegerOperator implements NumberOperator<Integer> {
 		return i.intValue();
 	}
 	
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean equals(final Object other) {
+		return (other instanceof IntegerOperator);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int hashCode() {
+		return getClass().hashCode();
+	}
+
+	
 	
 	
 }

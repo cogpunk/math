@@ -5,6 +5,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
+import nl.jqno.equalsverifier.EqualsVerifier;
+
 
 public class IntegerOperatorTest {
 	
@@ -54,6 +56,13 @@ public class IntegerOperatorTest {
 	@Test
 	public void testCast() {
 		assertEquals(3, (int) operator.cast(3.5));
+	}
+	
+	@Test
+	public void testEqualsAndHashCode() {
+		
+		EqualsVerifier.simple().forClass(IntegerOperator.class).verify();
+		
 	}
 
 }

@@ -11,6 +11,8 @@ import org.apache.commons.math3.fraction.Fraction;
 import org.junit.Before;
 import org.junit.Test;
 
+import nl.jqno.equalsverifier.EqualsVerifier;
+
 public class EventIntersectionSelectorImplTest {
 
 	private EventProbabilityProfile<Integer, Fraction> profile;
@@ -49,6 +51,13 @@ public class EventIntersectionSelectorImplTest {
 		expectedSet.add(5);
 		
 		assertEquals(expectedSet, selectedSet);
+		
+	}
+	
+	@Test
+	public void testEqualsAndHashCode() {
+		
+		EqualsVerifier.simple().forClass(EventIntersectionSelectorImpl.class).verify();
 		
 	}
 

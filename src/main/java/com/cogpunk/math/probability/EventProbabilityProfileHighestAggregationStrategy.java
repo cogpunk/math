@@ -31,4 +31,20 @@ public class EventProbabilityProfileHighestAggregationStrategy<E extends Number 
 		return highest;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean equals(final Object other) {
+		return (other instanceof EventProbabilityProfileHighestAggregationStrategy);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int hashCode() {
+		return getClass().hashCode();
+	}
+
 }

@@ -17,8 +17,8 @@
 	</licenses>
 	<scm>
 		<connection>scm:git:git://github.com/cogpunk/math.git</connection>
-    <developerConnection>scm:git:git@github.com:cogpunk/math.git</developerConnection>
-    <url>https://github.com/cogpunk/math</url>
+		<developerConnection>scm:git:git@github.com:cogpunk/math.git</developerConnection>
+		<url>https://github.com/cogpunk/math</url>
 	</scm>
 	<issueManagement>
 		<system>GitHub</system>
@@ -55,9 +55,9 @@
 			<version>3.1</version>
 		</dependency>
 		<dependency>
-			<groupId>org.mockito</groupId>
-			<artifactId>mockito-all</artifactId>
-			<version>1.10.19</version>
+			<groupId>nl.jqno.equalsverifier</groupId>
+			<artifactId>equalsverifier</artifactId>
+			<version>3.5</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

@@ -6,6 +6,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import nl.jqno.equalsverifier.EqualsVerifier;
+
 public class EventProbabilityTest {
 
 	@Before
@@ -55,6 +57,13 @@ public class EventProbabilityTest {
 		EventProbability<Object, Integer> p2 = new EventProbability<Object, Integer> (e,i);
 		
 		Assert.assertEquals(p1, p2);
+	}
+	
+	@Test
+	public void testEqualsAndHashCode() {
+		
+		EqualsVerifier.simple().forClass(EventProbability.class).verify();
+		
 	}
 
 }

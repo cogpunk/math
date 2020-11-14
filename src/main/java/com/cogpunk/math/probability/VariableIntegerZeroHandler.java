@@ -18,4 +18,22 @@ public class VariableIntegerZeroHandler<P extends Number> implements VariableZer
 		
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean equals(final Object other) {
+		return (other instanceof VariableIntegerZeroHandler);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int hashCode() {
+		return getClass().hashCode();
+	}
+	
+	
+
 }

@@ -4,6 +4,8 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.EqualsBuilder;
 
 /**
  * A simple implementation of the ProbabilityProfile
@@ -13,7 +15,7 @@ import java.util.TreeMap;
  */
 public class SimpleProbabilityProfileImpl<E,P extends Number> implements EventProbabilityProfile<E, P> {
 
-	private TreeMap<E, P> profile = new TreeMap<E, P>();
+	protected TreeMap<E, P> profile = new TreeMap<E, P>();
 	
 	
 	/**
@@ -45,35 +47,31 @@ public class SimpleProbabilityProfileImpl<E,P extends Number> implements EventPr
 		return profile;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((profile == null) ? 0 : profile.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		@SuppressWarnings("rawtypes")
-		SimpleProbabilityProfileImpl other = (SimpleProbabilityProfileImpl) obj;
-		if (profile == null) {
-			if (other.profile != null)
-				return false;
-		} else if (!profile.equals(other.profile))
-			return false;
-		return true;
-	}
+	
 
 	@Override
 	public String toString() {
 		return "SimpleProbabilityProfileImpl [profile=" + profile + "]";
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean equals(final Object other) {
+		if (!(other instanceof SimpleProbabilityProfileImpl)) {
+			return false;
+		}
+		SimpleProbabilityProfileImpl<?,?> castOther = (SimpleProbabilityProfileImpl<?,?>) other;
+		return new EqualsBuilder().append(profile, castOther.profile).isEquals();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder().append(profile).toHashCode();
 	}
 	
 	

@@ -5,6 +5,8 @@ import java.util.Map;
 import java.util.Set;
 
 import com.cogpunk.math.NumberOperator;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.EqualsBuilder;
 
 /**
  * Conditionally re-evaluates the probabilities under conditions defined by the supplied the Event selector
@@ -14,7 +16,7 @@ import com.cogpunk.math.NumberOperator;
 public class ConditionalReevaluationProbabilityProfile<E,P extends Number> implements EventProbabilityProfile<E, P> {
 	
 	private EventProbabilityProfile<E,P> profile;
-	
+
 	/**
 	 * @param baseProfile The base, source profile
 	 * @param selector  The event selector that determines which event are to be reevaluated
@@ -77,5 +79,23 @@ public class ConditionalReevaluationProbabilityProfile<E,P extends Number> imple
 	public Map<E, P> map() {
 		return profile.map();
 	}
+
+	
+	@Override
+	public boolean equals(final Object other) {
+		if (!(other instanceof ConditionalReevaluationProbabilityProfile)) {
+			return false;
+		}
+		ConditionalReevaluationProbabilityProfile<?, ?> castOther = (ConditionalReevaluationProbabilityProfile<?, ?>) other;
+		return new EqualsBuilder().append(profile, castOther.profile).isEquals();
+	}
+
+	@Override
+	public int hashCode() {
+		return new HashCodeBuilder().append(profile).toHashCode();
+	}
+	
+	
+	
 
 }

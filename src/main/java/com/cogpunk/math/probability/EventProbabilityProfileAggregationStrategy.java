@@ -15,5 +15,9 @@ public interface EventProbabilityProfileAggregationStrategy<I, E> {
 	 * @return The output event probability
 	 */
 	public E aggregate(List<I> results);
+	
+	public int hashCode();
+	
+	public boolean equals(Object obj);
 
 }

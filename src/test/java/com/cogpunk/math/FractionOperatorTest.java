@@ -7,6 +7,10 @@ import org.apache.commons.math3.fraction.Fraction;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.cogpunk.math.probability.AverageEventCalculator;
+
+import nl.jqno.equalsverifier.EqualsVerifier;
+
 public class FractionOperatorTest {
 	
 	private FractionOperator operator;
@@ -48,5 +52,13 @@ public class FractionOperatorTest {
 		assertEquals(new Fraction(1,1), operator.cast(1.0));
 		assertEquals(new Fraction(1,2), operator.cast(0.5));
 	}
+	
+	@Test
+	public void testEqualsAndHashCode() {
+		
+		EqualsVerifier.simple().forClass(FractionOperator.class).verify();
+		
+	}
+	
 
 }

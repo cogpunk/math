@@ -11,6 +11,8 @@ import org.apache.commons.math3.fraction.Fraction;
 import org.junit.Before;
 import org.junit.Test;
 
+import nl.jqno.equalsverifier.EqualsVerifier;
+
 public class VariableIntegerZeroHandlerTest {
 
 	@Test
@@ -30,6 +32,13 @@ public class VariableIntegerZeroHandlerTest {
 		
 		assertEquals(profiles.get(0).getProbability(0), f);
 		
+		
+	}
+	
+	@Test
+	public void testEqualsAndHashCode() {
+		
+		EqualsVerifier.simple().forClass(VariableIntegerZeroHandler.class).verify();
 		
 	}
 

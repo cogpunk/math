@@ -12,4 +12,12 @@ public interface NumberOperator<P extends Number> {
 	
 	public P cast(Number i);
 	
+	public int hashCode();
+	
+	/**
+	 * @param obj The object to compare with
+	 * @return There this is an equivalent NumberOperator
+	 */
+	public boolean equals(Object obj);
+	
 }

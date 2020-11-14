@@ -11,6 +11,8 @@ import org.junit.Test;
 import com.cogpunk.math.FractionOperator;
 import com.cogpunk.math.IntegerOperator;
 
+import nl.jqno.equalsverifier.EqualsVerifier;
+
 public class EventProbabilityProfileAggregatorTest {
 	
 
@@ -178,6 +180,13 @@ public class EventProbabilityProfileAggregatorTest {
 		}
 		
 		return new ComparableEventProbabilityProfileImpl<Integer, Fraction>(map, new FractionOperator());
+		
+	}
+	
+	@Test
+	public void testEqualsAndHashCode() {
+		
+		EqualsVerifier.simple().forClass(EventProbabilityProfileAggregator.class).verify();
 		
 	}
 

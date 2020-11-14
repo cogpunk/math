@@ -1,6 +1,8 @@
 package com.cogpunk.math;
 
 import org.apache.commons.math3.fraction.Fraction;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+import org.apache.commons.lang3.builder.EqualsBuilder;
 
 public class FractionOperator implements NumberOperator<Fraction> {
 	
@@ -33,8 +35,25 @@ public class FractionOperator implements NumberOperator<Fraction> {
 			throw new IllegalArgumentException(String.format("%s is an unsupported number type", i.getClass()));
 		}
 	}
-	
-	
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean equals(final Object other) {
+		return (other instanceof FractionOperator);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public int hashCode() {
+		return getClass().hashCode();
+	}
+
+	
+	
+	
 
 }
