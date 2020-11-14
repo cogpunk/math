@@ -1,8 +1,6 @@
 package com.cogpunk.math;
 
 import org.apache.commons.math3.fraction.Fraction;
-import org.apache.commons.lang3.builder.HashCodeBuilder;
-import org.apache.commons.lang3.builder.EqualsBuilder;
 
 public class FractionOperator implements NumberOperator<Fraction> {
 	
