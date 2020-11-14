@@ -48,6 +48,8 @@ public class FractionOperatorTest {
 		assertEquals(new Fraction(1,1), operator.cast(1));
 		assertEquals(new Fraction(1,1), operator.cast(1.0));
 		assertEquals(new Fraction(1,2), operator.cast(0.5));
+		assertEquals(new Fraction(1,4), operator.cast((double) 0.25));
+		assertEquals(new Fraction(1,3), operator.cast(new Fraction(1,3)));
 	}
 	
 	@Test
