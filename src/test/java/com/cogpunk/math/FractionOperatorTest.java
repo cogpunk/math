@@ -1,13 +1,10 @@
 package com.cogpunk.math;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
 
 import org.apache.commons.math3.fraction.Fraction;
 import org.junit.Before;
 import org.junit.Test;
-
-import com.cogpunk.math.probability.AverageEventCalculator;
 
 import nl.jqno.equalsverifier.EqualsVerifier;
 
