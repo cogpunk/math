@@ -22,7 +22,7 @@ The build requires a Java 6 JDK (or higher) and uses [Maven](https://maven.apach
 	<dependency>
 		<groupId>com.cogpunk</groupId>
 		<artifactId>cogpunk-math</artifactId>
-		<version>1.0.1</version>
+		<version>1.0.3</version>
 	</dependency>
 
 ## License
