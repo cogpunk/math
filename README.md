@@ -14,17 +14,17 @@ Cogpunk Math is a set of mathematical utilities for general use
 ## Building from source
 
 The build requires a Java 6 JDK (or higher) and uses [Maven](https://maven.apache.org)
-
-	mvn install
-
+```bash
+mvn install
+```
 ## Adding as a dependency
-
-	<dependency>
-		<groupId>com.cogpunk</groupId>
-		<artifactId>cogpunk-math</artifactId>
-		<version>1.0.1</version>
-	</dependency>
-
+```xml
+<dependency>
+	<groupId>com.cogpunk</groupId>
+	<artifactId>cogpunk-math</artifactId>
+	<version>1.0.3</version>
+</dependency>
+```
 ## License
 
 Code is under the [Apache Licence v2](https://www.apache.org/licenses/LICENSE-2.0.txt).
@@ -32,32 +32,32 @@ Code is under the [Apache Licence v2](https://www.apache.org/licenses/LICENSE-2.
 ## Example
 
 Determine the probability profile of adding 3 six-sided dice together
+```java
+// Create a profile for a 6-sided dice
 
-	// Create a profile for a 6-sided dice
-	
-	Fraction prob = new Fraction(1, 6);
-	
-	Map<Integer, Fraction> map = new TreeMap<Integer, Fraction>();
-	
-	for (int n = 1; n <= 6; n++) {
-		map.put(n, prob);
-	}
-	
-	ComparableEventProbabilityProfileImpl<Integer, Fraction> dice 
-		= new ComparableEventProbabilityProfileImpl<Integer, Fraction>(
-			map, new FractionOperator());
-	
-	// Determine the probabilities of all possible results of adding the dice values together 
-	// using the EventProbabilityProfileAdditionAggregationStrategy
-	
-	EventProbabilityProfileAggregator<Integer, Integer, Fraction> aggregator 
-		= new EventProbabilityProfileAggregator<Integer, Integer, Fraction>(
-			new EventProbabilityProfileAdditionAggregationStrategy<Integer>(
-				new IntegerOperator()), new FractionOperator(), dice, dice, dice);
-	
-	// Print out the results to the console
-	
-	System.out.println(aggregator);
-	
+Fraction prob = new Fraction(1, 6);
+
+Map<Integer, Fraction> map = new TreeMap<Integer, Fraction>();
+
+for (int n = 1; n <= 6; n++) {
+	map.put(n, prob);
+}
+
+ComparableEventProbabilityProfileImpl<Integer, Fraction> dice 
+	= new ComparableEventProbabilityProfileImpl<Integer, Fraction>(
+		map, new FractionOperator());
+
+// Determine the probabilities of all possible results of adding the dice values together 
+// using the EventProbabilityProfileAdditionAggregationStrategy
+
+EventProbabilityProfileAggregator<Integer, Integer, Fraction> aggregator 
+	= new EventProbabilityProfileAggregator<Integer, Integer, Fraction>(
+		new EventProbabilityProfileAdditionAggregationStrategy<Integer>(
+			new IntegerOperator()), new FractionOperator(), dice, dice, dice);
+
+// Print out the results to the console
+
+System.out.println(aggregator);
+```	
 	
 
