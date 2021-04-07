@@ -73,7 +73,7 @@ public class VariableProbabilityProfileAggregatorTest {
 		
 		EventProbabilityProfile<Integer, Fraction> prof = new SimpleProbabilityProfileImpl<Integer, Fraction>(map);
 		
-		VariableProbabilityProfileAggregator<Integer, Fraction> agg = new VariableProbabilityProfileAggregator<Integer, Fraction>(
+		new VariableProbabilityProfileAggregator<Integer, Fraction>(
 				negativeProfile,
 				new EventProbabilityProfileAdditionAggregationStrategy<Integer>(integerOperator),
 				fractionOperator,
@@ -102,7 +102,7 @@ public class VariableProbabilityProfileAggregatorTest {
 		
 		EventProbabilityProfile<Integer, Fraction> prof = new SimpleProbabilityProfileImpl<Integer, Fraction>(map);
 		
-		VariableProbabilityProfileAggregator<Integer, Fraction> agg = new VariableProbabilityProfileAggregator<Integer, Fraction>(
+		new VariableProbabilityProfileAggregator<Integer, Fraction>(
 				zeroProfile,
 				new EventProbabilityProfileAdditionAggregationStrategy<Integer>(integerOperator),
 				fractionOperator,
