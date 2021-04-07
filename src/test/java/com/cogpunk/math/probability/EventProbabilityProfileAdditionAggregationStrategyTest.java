@@ -19,9 +19,9 @@ public class EventProbabilityProfileAdditionAggregationStrategyTest {
 
 		Integer[] args = new Integer[] {1,2,3,4,5,6};
 		
-		assertEquals(21, new EventProbabilityProfileAdditionAggregationStrategy<Integer>(new IntegerOperator()).aggregate(Arrays.asList(args)));
+		assertEquals((Integer) 21, new EventProbabilityProfileAdditionAggregationStrategy<Integer>(new IntegerOperator()).aggregate(Arrays.asList(args)));
 		
-		assertEquals(0, new EventProbabilityProfileAdditionAggregationStrategy<Integer>(new IntegerOperator()).aggregate(new ArrayList<Integer>()));
+		assertEquals((Integer) 0, new EventProbabilityProfileAdditionAggregationStrategy<Integer>(new IntegerOperator()).aggregate(new ArrayList<Integer>()));
 		
 	}
 	

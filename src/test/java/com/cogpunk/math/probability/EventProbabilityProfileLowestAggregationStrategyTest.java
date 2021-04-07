@@ -17,7 +17,7 @@ public class EventProbabilityProfileLowestAggregationStrategyTest {
 		
 		Integer[] args = new Integer[] {3,4,6,1,5,2};
 		
-		assertEquals(1, new EventProbabilityProfileLowestAggregationStrategy<Integer>().aggregate(Arrays.asList(args)));
+		assertEquals((Integer) 1, new EventProbabilityProfileLowestAggregationStrategy<Integer>().aggregate(Arrays.asList(args)));
 
 		assertNull(new EventProbabilityProfileLowestAggregationStrategy<Integer>().aggregate(new ArrayList<Integer>()));
 	}

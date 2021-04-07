@@ -19,7 +19,7 @@ public class EventProbabilityProfileHighestAggregationStrategyTest {
 		
 		Integer[] args = new Integer[] {1,4,6,3,5,2};
 		
-		assertEquals(6, new EventProbabilityProfileHighestAggregationStrategy<Integer>().aggregate(Arrays.asList(args)));
+		assertEquals((Integer) 6, new EventProbabilityProfileHighestAggregationStrategy<Integer>().aggregate(Arrays.asList(args)));
 
 		assertNull(new EventProbabilityProfileHighestAggregationStrategy<Integer>().aggregate(new ArrayList<Integer>()));
 	}

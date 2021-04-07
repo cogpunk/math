@@ -24,11 +24,11 @@ public class AverageEventCalculatorTest {
 		
 		AverageEventCalculator<Integer, Fraction> calc = new AverageEventCalculator<Integer, Fraction>(new FractionOperator());
 		
-		assertEquals(2, calc.mode(new SimpleProbabilityProfileImpl<Integer, Fraction>(map)));
+		assertEquals((Integer) 2, calc.mode(new SimpleProbabilityProfileImpl<Integer, Fraction>(map)));
 		
-		map.put(3, new Fraction(3,3));
+		map.put((Integer)3, new Fraction(3,3));
 		
-		assertEquals(3, calc.mode(new SimpleProbabilityProfileImpl<Integer, Fraction>(map)));
+		assertEquals((Integer)3, calc.mode(new SimpleProbabilityProfileImpl<Integer, Fraction>(map)));
 		
 	}
 
@@ -42,15 +42,15 @@ public class AverageEventCalculatorTest {
 		
 		AverageEventCalculator<Integer, Fraction> calc = new AverageEventCalculator<Integer, Fraction>(new FractionOperator());
 		
-		assertEquals(2, calc.median(new SimpleProbabilityProfileImpl<Integer, Fraction>(map)));
+		assertEquals((Integer) 2, calc.median(new SimpleProbabilityProfileImpl<Integer, Fraction>(map)));
 		
 		map.put(3, new Fraction(3,3));
 		
-		assertEquals(2, calc.median(new SimpleProbabilityProfileImpl<Integer, Fraction>(map)));
+		assertEquals((Integer) 2, calc.median(new SimpleProbabilityProfileImpl<Integer, Fraction>(map)));
 		
 		map.put(3, new Fraction(4,3));
 		
-		assertEquals(3, calc.median(new SimpleProbabilityProfileImpl<Integer, Fraction>(map)));
+		assertEquals((Integer) 3, calc.median(new SimpleProbabilityProfileImpl<Integer, Fraction>(map)));
 		
 	}
 
