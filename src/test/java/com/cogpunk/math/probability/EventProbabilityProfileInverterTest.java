@@ -15,7 +15,7 @@ import nl.jqno.equalsverifier.EqualsVerifier;
 public class EventProbabilityProfileInverterTest {
 
 	@Test
-	public void testInverstion() {
+	public void testInversion() {
 
 		Map<Integer, Fraction> map = new HashMap<Integer, Fraction>();
 		map.put(1, new Fraction(1,6));

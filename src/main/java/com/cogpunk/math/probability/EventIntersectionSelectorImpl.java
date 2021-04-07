@@ -13,7 +13,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
  */
 public class EventIntersectionSelectorImpl<E,P extends Number> implements EventSelector<E, P> {
 	
-	private Set<E> events = new HashSet<E>();
+	private final Set<E> events = new HashSet<E>();
 	
 	public EventIntersectionSelectorImpl(Set<E> events) {
 		this.events.addAll(events);

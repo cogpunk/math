@@ -13,7 +13,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
  */
 public class EventProbabilityProfileAdditionAggregationStrategy<E extends Number> implements EventProbabilityProfileAggregationStrategy<E, E> {
 
-	private NumberOperator<E> numberOperator;
+	private final NumberOperator<E> numberOperator;
 	
 	/**
 	 * @param numberOperator The operator stable to manipulating the event

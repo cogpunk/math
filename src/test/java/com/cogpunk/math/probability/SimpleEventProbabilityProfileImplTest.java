@@ -15,7 +15,7 @@ public class SimpleEventProbabilityProfileImplTest {
 	private Map<String, Integer> map2;
 
 	@Before
-	public void setUp() throws Exception {
+	public void setUp() {
 		map1 = new HashMap<String, Integer>();
 		map1.put("First", 1);
 		map1.put("Second", 2);

@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.math3.fraction.Fraction;
-import org.junit.Before;
 import org.junit.Test;
 
 import nl.jqno.equalsverifier.EqualsVerifier;

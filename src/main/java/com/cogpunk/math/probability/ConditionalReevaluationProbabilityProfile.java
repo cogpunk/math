@@ -1,8 +1,6 @@
 package com.cogpunk.math.probability;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 import com.cogpunk.math.NumberOperator;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
@@ -15,7 +13,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
  */
 public class ConditionalReevaluationProbabilityProfile<E,P extends Number> implements EventProbabilityProfile<E, P> {
 	
-	private EventProbabilityProfile<E,P> profile;
+	private final EventProbabilityProfile<E,P> profile;
 
 	/**
 	 * @param baseProfile The base, source profile
@@ -30,9 +28,8 @@ public class ConditionalReevaluationProbabilityProfile<E,P extends Number> imple
 	}
 	
 	private EventProbabilityProfile<E,P> calculate(EventProbabilityProfile<E, P> baseProfile, EventSelector<E, P> selector, int reevaluationCount, NumberOperator<P> numberOperator) {
-		
-		Map<E,P> currentMap = new HashMap<E, P>();
-		currentMap.putAll(baseProfile.map());
+
+		Map<E, P> currentMap = new HashMap<E, P>(baseProfile.map());
 		
 		Set<E> reevalEvents = selector.selectEvents(baseProfile);
 		
@@ -46,19 +43,18 @@ public class ConditionalReevaluationProbabilityProfile<E,P extends Number> imple
 				totalReevalProb = numberOperator.add(totalReevalProb, prob);
 			}
 			
-			// Take the base profile, multiply it by the probability of revelaution and add it to the current profile
+			// Take the base profile, multiply it by the probability of reevaluation and add it to the current profile
+
+			Map<E, P> reevalMap = new HashMap<E, P>(baseProfile.map());
 			
-			Map<E,P> reevalMap = new HashMap<E, P>();
-			reevalMap.putAll(baseProfile.map());
-			
-			for (E event : reevalMap.keySet()) {
+			for (Map.Entry<E, P> event : reevalMap.entrySet()) {
 				
-				P prob = numberOperator.multiply(totalReevalProb, reevalMap.get(event));
+				P prob = numberOperator.multiply(totalReevalProb, event.getValue());
 				
-				if (!currentMap.containsKey(event)) {
-					currentMap.put(event, prob);
+				if (!currentMap.containsKey(event.getKey())) {
+					currentMap.put(event.getKey(), prob);
 				} else {
-					currentMap.put(event, numberOperator.add(prob, currentMap.get(event)));
+					currentMap.put(event.getKey(), numberOperator.add(prob, currentMap.get(event.getKey())));
 				}
 				
 			}

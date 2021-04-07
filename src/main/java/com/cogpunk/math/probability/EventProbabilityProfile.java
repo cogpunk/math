@@ -12,16 +12,16 @@ public interface EventProbabilityProfile<E, P extends Number> {
 	 * @param event  The event in question
 	 * @return The probability of the supplied event, or null if the probability is not defined
 	 */
-	public P getProbability(E event) ;
+    P getProbability(E event) ;
 	
 	/**
 	 * @return A map containing all of the probabilities, keyed by the events 
 	 */
-	public Map<E, P> map();
+    Map<E, P> map();
 	
-	public int hashCode();
+	int hashCode();
 	
-	public boolean equals(Object obj);
+	boolean equals(Object obj);
 	
 
 }

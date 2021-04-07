@@ -11,15 +11,15 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 
 public class VariableProbabilityProfileAggregator<E, P extends Number> implements EventProbabilityProfile<E, P> {
 	
-	private EventProbabilityProfile<Integer, P> repeatProbabilityProfile;
+	private final EventProbabilityProfile<Integer, P> repeatProbabilityProfile;
 	
-	private EventProbabilityProfile<E, P> probabilityProfile;
+	private final EventProbabilityProfile<E, P> probabilityProfile;
 	
-	private EventProbabilityProfileAggregationStrategy<E, E> aggregationStrategy; 
+	private final EventProbabilityProfileAggregationStrategy<E, E> aggregationStrategy;
 	
-	private NumberOperator<P> numberOperator;
+	private final NumberOperator<P> numberOperator;
 	
-	private VariableZeroHandler<E, P> variableZeroHandler;
+	private final VariableZeroHandler<E, P> variableZeroHandler;
 
 	public VariableProbabilityProfileAggregator(EventProbabilityProfile<Integer, P> repeatProbabilityProfile,
 			EventProbabilityProfileAggregationStrategy<E, E> aggregationStrategy, 
@@ -117,7 +117,7 @@ public class VariableProbabilityProfileAggregator<E, P extends Number> implement
 
 	@Override
 	public String toString() {
-		return "VariableProbabilityProfileAggreggator [repeatProbabilityProfile=" + repeatProbabilityProfile
+		return "VariableProbabilityProfileAggregator [repeatProbabilityProfile=" + repeatProbabilityProfile
 				+ ", probabilityProfile="
 				+ probabilityProfile + ", aggregationStrategy=" + aggregationStrategy + ", numberOperator="
 				+ numberOperator + "]";

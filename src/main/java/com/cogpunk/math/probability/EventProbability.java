@@ -11,9 +11,9 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
  */
 public class EventProbability<E, P> {
 	
-	private E event;
+	private final E event;
 	
-	private P probability;
+	private final P probability;
 
 	public EventProbability(E event, P probability) {
 		super();

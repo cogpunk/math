@@ -10,7 +10,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.math3.fraction.Fraction;
-import org.junit.Before;
 import org.junit.Test;
 
 import com.cogpunk.math.FractionOperator;
@@ -19,10 +18,6 @@ import com.cogpunk.math.IntegerOperator;
 import nl.jqno.equalsverifier.EqualsVerifier;
 
 public class VariableProbabilityProfileAggregatorTest {
-
-	@Before
-	public void setUp() throws Exception {
-	}
 
 	@Test
 	public void test() {
@@ -87,7 +82,8 @@ public class VariableProbabilityProfileAggregatorTest {
 		);
 		
 	}
-	
+
+	@Test
 	public void testZeroRepeats() {
 		
 		Map<Integer, Fraction> zeroMap = new HashMap<Integer, Fraction>();

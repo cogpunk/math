@@ -12,7 +12,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 public class EventProbabilityProfileMultiplicationAggregationStrategy<E extends Number>
 		implements EventProbabilityProfileAggregationStrategy<E, E> {
 	
-	private NumberOperator<E> numberOperator;
+	private final NumberOperator<E> numberOperator;
 	
 	/**
 	 * @param numberOperator suitable for manipulating the events
@@ -25,8 +25,8 @@ public class EventProbabilityProfileMultiplicationAggregationStrategy<E extends 
 	/**
 	 * 
 	 * 
-	 * @param results  The events to be multipled together
-	 * @return All of the supplied events multpled together
+	 * @param results  The events to be multiplied together
+	 * @return All of the supplied events multiplied together
 	 */
 	@Override
 	public E aggregate(List<E> results) {

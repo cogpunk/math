@@ -12,11 +12,11 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
  */
 public class ComparableEventProbabilityProfileImpl<E extends Comparable<E>, P extends Number> extends SimpleProbabilityProfileImpl<E, P> implements ComparableEventProbabilityProfile<E, P> {
 	
-	private NumberOperator<P> numberOperator ;
+	private final NumberOperator<P> numberOperator ;
 	
 	/**
 	 * @param profile The source profile to copy
-	 * @param numberOperator An oprator suability for manipulating  the probabilities
+	 * @param numberOperator An operator usability for manipulating  the probabilities
 	 */
 	public ComparableEventProbabilityProfileImpl(Map<E, P> profile, NumberOperator<P> numberOperator) {
 		super(profile);

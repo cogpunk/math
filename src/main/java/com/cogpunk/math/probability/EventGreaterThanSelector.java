@@ -13,7 +13,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
  */
 public class EventGreaterThanSelector<E extends Comparable<E>, P extends Number> implements EventSelector<E, P> {
 	
-	private E threshold;
+	private final E threshold;
 	
 	public EventGreaterThanSelector(E threshold) {
 		this.threshold = threshold;
@@ -22,9 +22,7 @@ public class EventGreaterThanSelector<E extends Comparable<E>, P extends Number>
 	@Override
 	public Set<E> selectEvents(EventProbabilityProfile<E, P> profile) {
 		
-		TreeMap<E,P> map = new TreeMap<E,P>();
-		
-		map.putAll(profile.map());
+		TreeMap<E,P> map = new TreeMap<E,P>(profile.map());
 		
 		return map.tailMap(threshold, false).keySet();
 		

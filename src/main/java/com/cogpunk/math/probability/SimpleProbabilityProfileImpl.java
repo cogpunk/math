@@ -15,7 +15,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
  */
 public class SimpleProbabilityProfileImpl<E,P extends Number> implements EventProbabilityProfile<E, P> {
 
-	protected TreeMap<E, P> profile = new TreeMap<E, P>();
+	protected final TreeMap<E, P> profile = new TreeMap<E, P>();
 	
 	
 	/**

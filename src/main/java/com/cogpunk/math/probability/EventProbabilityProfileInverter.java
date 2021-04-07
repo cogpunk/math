@@ -13,7 +13,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
  */
 public class EventProbabilityProfileInverter<E, P extends Number> implements EventProbabilityProfile<E, P> {
 	
-	private Map<E, P> map;
+	private final Map<E, P> map;
 	
 	/**
 	 * @param profile The input source profile

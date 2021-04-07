@@ -22,7 +22,7 @@ public class ConditionalReevaluationProbabilityProfileTest {
 	private EventSelector<Integer, Fraction> selector;
 
 	@Before
-	public void setUp() throws Exception {
+	public void setUp() {
 		
 		Map<Integer, Fraction> map = new HashMap<Integer, Fraction>();
 		map.put(1, new Fraction(1,6));

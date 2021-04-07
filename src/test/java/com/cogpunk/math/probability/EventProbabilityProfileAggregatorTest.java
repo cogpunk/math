@@ -22,7 +22,7 @@ public class EventProbabilityProfileAggregatorTest {
 		EventProbabilityProfile<Integer, Fraction> profile =  createProfile(6);
 		
 		EventProbabilityProfileAggregator<Integer, Integer, Fraction> aggregator 
-		= new EventProbabilityProfileAggregator<Integer, Integer, Fraction>(new EventProbabilityProfileAdditionAggregationStrategy(new IntegerOperator()), new FractionOperator(), profile);
+		= new EventProbabilityProfileAggregator<Integer, Integer, Fraction>(new EventProbabilityProfileAdditionAggregationStrategy<Integer>(new IntegerOperator()), new FractionOperator(), profile);
 		
 		assertEquals(profile.map(), aggregator.map());
 		
@@ -34,10 +34,10 @@ public class EventProbabilityProfileAggregatorTest {
 		EventProbabilityProfile<Integer, Fraction> profile =  createProfile(6);
 		
 		EventProbabilityProfileAggregator<Integer, Integer, Fraction> aggregator1 
-		= new EventProbabilityProfileAggregator<Integer, Integer, Fraction>(new EventProbabilityProfileAdditionAggregationStrategy(new IntegerOperator()), new FractionOperator(), profile);
+		= new EventProbabilityProfileAggregator<Integer, Integer, Fraction>(new EventProbabilityProfileAdditionAggregationStrategy<Integer>(new IntegerOperator()), new FractionOperator(), profile);
 		
 		EventProbabilityProfileAggregator<Integer, Integer, Fraction> aggregator2
-		= new EventProbabilityProfileAggregator<Integer, Integer, Fraction>(new EventProbabilityProfileAdditionAggregationStrategy(new IntegerOperator()), new FractionOperator(), profile);
+		= new EventProbabilityProfileAggregator<Integer, Integer, Fraction>(new EventProbabilityProfileAdditionAggregationStrategy<Integer>(new IntegerOperator()), new FractionOperator(), profile);
 		
 		
 		assertEquals(aggregator1, aggregator2);

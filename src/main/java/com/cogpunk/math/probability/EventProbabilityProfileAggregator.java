@@ -18,9 +18,9 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
  */
 public class EventProbabilityProfileAggregator<I, E, P extends Number> implements EventProbabilityProfile<E, P> {
 	
-	private EventProbabilityProfile<E, P> probabilityProfile;
+	private final EventProbabilityProfile<E, P> probabilityProfile;
 	
-	private NumberOperator<P> numberOperator;
+	private final NumberOperator<P> numberOperator;
 	
 	public EventProbabilityProfileAggregator(
 			EventProbabilityProfileAggregationStrategy<I, E> aggregationStrategy, 
@@ -93,11 +93,10 @@ public class EventProbabilityProfileAggregator<I, E, P extends Number> implement
 		
 		for (I result : currentProfile.map().keySet()) {
 			
-			List<EventProbability<I,P>> allDiceResultProbabilities = new ArrayList<EventProbability<I,P>>();
-			allDiceResultProbabilities.addAll(previousDiceResultProbabilities);
+			List<EventProbability<I,P>> allDiceResultProbabilities = new ArrayList<EventProbability<I,P>>(previousDiceResultProbabilities);
 			allDiceResultProbabilities.add(new EventProbability<I,P>(result, currentProfile.getProbability(result)));
 			
-			// If there are mode dice to roll, the do so by recusion
+			// If there are mode dice to roll, the do so by recursion
 			
 			if (iter < probabilityProfiles.size()-1) {
 				aggregate(totalAggregates, allDiceResultProbabilities, aggregationStrategy, iter+1, probabilityProfiles);
@@ -146,7 +145,7 @@ public class EventProbabilityProfileAggregator<I, E, P extends Number> implement
 
 	@Override
 	public String toString() {
-		return "ProbabilityProfileAggegator [probabilityProfile=" + probabilityProfile + "]";
+		return "ProbabilityProfileAggregator [probabilityProfile=" + probabilityProfile + "]";
 	}
 
 	/**

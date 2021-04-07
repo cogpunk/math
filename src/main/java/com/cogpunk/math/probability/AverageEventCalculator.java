@@ -1,5 +1,6 @@
 package com.cogpunk.math.probability;
 
+import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
@@ -12,7 +13,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
  */
 public class AverageEventCalculator<E extends Comparable<E>,P extends Number & Comparable<P>> {
 	
-	private NumberOperator<P> probabilityNumberOperator;
+	private final NumberOperator<P> probabilityNumberOperator;
 	
 	/**
 	 * @param probabilityNumberOperator Operator suitable manipulating the events
@@ -51,9 +52,8 @@ public class AverageEventCalculator<E extends Comparable<E>,P extends Number & C
 	 * @return The 'middle' (median) event
 	 */
 	public E median(EventProbabilityProfile<E,P> profile) {
-		
-		SortedMap<E,P> sortedMap = new TreeMap<E,P>();
-		sortedMap.putAll(profile.map());
+
+		SortedMap<E, P> sortedMap = new TreeMap<E, P>(profile.map());
 		
 		// 1. Ascertain the total probabilities
 		// 2. Iterator through in natural order until first exceeds
@@ -66,12 +66,12 @@ public class AverageEventCalculator<E extends Comparable<E>,P extends Number & C
 		
 		E medianEvent = null;
 		
-		for (E e : sortedMap.keySet()) {
+		for (Map.Entry<E, P> e : sortedMap.entrySet()) {
 			
-			countProb = probabilityNumberOperator.add(countProb, sortedMap.get(e));
+			countProb = probabilityNumberOperator.add(countProb, e.getValue());
 			
 			if (countProb.compareTo(middleProb) >= 0) {
-				medianEvent = e;
+				medianEvent = e.getKey();
 				break;
 			}
 			
