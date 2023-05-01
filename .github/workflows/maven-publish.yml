@@ -4,8 +4,13 @@
 name: Maven Package
 
 on:
+  push:
+    branches: [main]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [main]
   release:
-    types: [created, push]
+    types: [created]
 
 jobs:
   build:
