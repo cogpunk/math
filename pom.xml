@@ -69,9 +69,9 @@
 	</dependencies>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>1.6</maven.compiler.source>
-		<maven.compiler.target>1.6</maven.compiler.target>
-		<sonar.java.source>6</sonar.java.source>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+		<sonar.java.source>11</sonar.java.source>
 		<sonar.projectKey>cogpunk_math</sonar.projectKey>
 		<sonar.organization>cogpunk</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
