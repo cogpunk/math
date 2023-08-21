@@ -28,7 +28,7 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run: mvn -B package --file pom.xml
+      run: mvn -B clean org.jacoco:jacoco-maven-plugin:prepare-agent package --file pom.xml
     - name: Analyze with SonarQube
       # You can pin the exact commit or the version.
       # uses: SonarSource/sonarqube-scan-action@v1.1.0
