@@ -51,7 +51,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}   # Generate a token on SonarQube, add it to the secrets of this repo with the name SONAR_TOKEN (Settings > Secrets > Actions > add new repository secret)
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}   # add the URL of your instance to the secrets of this repo with the name SONAR_HOST_URL (Settings > Secrets > Actions > add new repository secret)
         with:
-          args: -Dsonar.projectKey=cogpunk_math -Dsonar.organization=cogpunk
+          args: -Dsonar.projectKey=cogpunk_math -Dsonar.organization=cogpunk -Dsonar.pullrequest.key=${{ github.event.number }} -Dsonar.pullrequest.branch=${{ github.HEAD_REF }} -Dsonar.pullrequest.base=${{ github.BASE_REF }} -Dsonar.pullrequest.github.repository=${{ github.repository }}
             # Unique key of your project. You can find it in SonarQube > [my project] > Project Information (top-right menu)
             # mandatory
             
