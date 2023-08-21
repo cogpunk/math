@@ -1,14 +1,16 @@
 package com.cogpunk.math.probability;
 
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.cogpunk.math.NumberOperator;
-import org.apache.commons.lang3.builder.HashCodeBuilder;
 import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+
+import com.cogpunk.math.NumberOperator;
 
 /**
  * 
@@ -28,6 +30,9 @@ public class EventProbabilityProfileAggregator<I, E, P extends Number> implement
 			EventProbabilityProfile<I,P> ...probabilityProfile) {
 		
 		this.numberOperator = numberOperator;
+
+		SecureRandom sr = new SecureRandom();
+		sr.setSeed(123456L); // Noncompliant
 		
 		this.probabilityProfile = calculateProbabilityProfile(aggregationStrategy, Arrays.asList(probabilityProfile));
 	}
